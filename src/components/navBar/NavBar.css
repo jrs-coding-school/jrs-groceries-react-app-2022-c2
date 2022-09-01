@@ -1,0 +1,16 @@
+.nav-root .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background-color: rgb(86, 115, 233);
+    color: rgb(233, 229, 229);
+}
+
+.cart.active {
+
+    opacity: 1;
+}
+
+.cart {
+    opacity: 0;
+}

@@ -1,0 +1,18 @@
+.cat-container {
+    margin: 1rem;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px;
+    justify-content: center;
+}
+
+.cat-container>* {
+    background-color: rgb(146, 146, 218);
+    padding: 1rem;
+    margin: .1rem;
+    width: 400px;
+}
