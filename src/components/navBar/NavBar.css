@@ -6,11 +6,28 @@
     color: rgb(233, 229, 229);
 }
 
-.cart.active {
+.side-menu {
+    border: solid red 2px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
 
-    opacity: 1;
+    width: fit-content;
+    transform: translateX(105%);
+
+    transition: 0.5s;
 }
 
-.cart {
-    opacity: 0;
+
+.side-menu.visible {
+    transform: none;
+}
+
+@media screen and (max-width: 550px) {
+    .side-menu {
+        left: 0;
+        width: unset;
+    }
 }

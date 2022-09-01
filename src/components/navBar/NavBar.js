@@ -20,7 +20,7 @@ export default function NavBar() {
                     <div>Home</div>
                     <div>Search Bar</div>
                     <div>Delivery/Pickup</div>
-                    <button onClick={toggleShoppingCart}>Cart</button>
+                    <button onClick={(toggleShoppingCart)}>Cart</button>
                     <button onClick={toggleModalOpen}>Login</button>
                 </div>
 
@@ -30,7 +30,7 @@ export default function NavBar() {
                     </Modal>
                 )}
 
-                <div className={shoppingCart ? 'cart active' : 'cart'}>
+                <div className={`side-menu cart ${shoppingCart ? 'visible' : 'hidden'}`}>
                     <Cart />
                 </div>
             </div>
