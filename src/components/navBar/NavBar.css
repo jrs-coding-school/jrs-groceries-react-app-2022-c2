@@ -25,6 +25,14 @@
     transform: none;
 }
 
+.nav-root .exit {
+    font-size: 14pt;
+    color: rgb(204, 39, 39);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+}
+
 @media screen and (max-width: 550px) {
     .side-menu {
         left: 0;

@@ -4,7 +4,8 @@ import { useBoolean } from '../../hooks/UseBoolean';
 import Modal from '../modal/Modal';
 import Login from '../login/Login';
 import Cart from '../cart/cart/Cart';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function NavBar() {
@@ -31,6 +32,7 @@ export default function NavBar() {
                 )}
 
                 <div className={`side-menu cart ${shoppingCart ? 'visible' : 'hidden'}`}>
+                    <FontAwesomeIcon className='exit' icon={faCircleXmark} onClick={(toggleShoppingCart)}></FontAwesomeIcon>
                     <Cart />
                 </div>
             </div>
