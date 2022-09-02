@@ -16,7 +16,8 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="" element={<HomePage />} />
-          <Route path=":category" element={<CategoryPage />} />
+          <Route path="/products/" element={<CategoryPage />} />
+          <Route path="/products/:category" element={<CategoryPage />} />
           <Route path="cart" element={<Cart />} />
 
         </Route>

@@ -1,0 +1,40 @@
+.product-card {
+    flex: 1 16%;
+    text-align: center;
+    width: fit-content;
+    margin: 20px;
+}
+
+.product-card .price {
+    font-size: 16pt;
+    font-weight: 700;
+}
+
+.product-card .name {
+    font-size: 12pt;
+    margin-top: 5px;
+    font-weight: 300;
+}
+
+.product-card .size {
+    margin-top: 10px;
+    font-size: 10pt;
+    font-style: italic;
+}
+
+.product-card .add-item {
+    position: relative;
+
+    border-radius: 20px;
+    padding: 5px;
+    width: 40px;
+    background-color: lightseagreen;
+    border: none;
+    color: white;
+    font-size: 16pt;
+}
+
+.product-card .add-item:hover {
+    color: lightseagreen;
+    background-color: antiquewhite;
+}
