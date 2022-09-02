@@ -1,21 +1,46 @@
-.modal-root {
-    background-color: rgba(55, 52, 52, 0.3);
-    position: fixed;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    backdrop-filter: blur(2px);
-}
-
-.modal-root .modal {
-    background: linear-gradient(45deg, #28313c, #37393f);
-    color: #ffffff;
-    width: fit-content;
-    min-width: 70%;
-    border-radius: 4px;
-    padding: 2rem;
-}
-
-.modal-root .login-form>div {
+.login-form>div {
     padding: 1em;
+}
+
+.login-form .login-failed {
+    color: rgb(255, 45, 45);
+    font-size: 0.8rem;
+    opacity: 0;
+    cursor: default;
+}
+
+.login-form .login-failed.visible {
+    opacity: 1;
+}
+
+.login-form button {
+    padding: 0.5rem 1rem;
+    min-width: 5rem;
+    font-size: 1rem;
+}
+
+.login-form .loader-spin-root {
+
+    display: flex;
+}
+
+.login-form .loader-spin-root .circle {
+    background: transparent;
+    width: .5rem;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: solid rgba(241, 237, 237, 0.585) 5px;
+    border-bottom: 5px solid rgb(255, 255, 255);
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

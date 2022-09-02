@@ -18,8 +18,17 @@ function getUserById(userId) {
     return axios.get(`${BASE_URL}/users/${userId}`)
 }
 
+function getUserByEmail(email) {
+    return axios.get(`${BASE_URL}/users/email/${email}`);
+}
+
 function createUser({ email, password }) {
     return axios.post(`${BASE_URL}/users`,
+        { email, password })
+}
+
+function login({ email, password }) {
+    return axios.post(`${BASE_URL}/users/login`,
         { email, password })
 }
 
@@ -29,12 +38,14 @@ function updateUser({ email, password, userId }) {
 }
 
 function deleteUserById(userId) {
-    return axios.delete(`${BASE_URL}/heroes/${userId}`);
+    return axios.delete(`${BASE_URL}/users/${userId}`);
 }
 
 export default {
     getAllUsers,
     getUserById,
+    getUserByEmail,
+    login,
     createUser,
     updateUser,
     deleteUserById,

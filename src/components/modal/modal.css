@@ -1,0 +1,17 @@
+.modal-root {
+    background-color: rgba(55, 52, 52, 0.3);
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    backdrop-filter: blur(2px);
+}
+
+.modal-root .modal {
+    background: linear-gradient(45deg, #28313c, #37393f);
+    color: #ffffff;
+    width: fit-content;
+    min-width: 70%;
+    border-radius: 4px;
+    padding: 2rem;
+}
