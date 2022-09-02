@@ -3,7 +3,7 @@ import { useBoolean } from '../../hooks/UseBoolean';
 import LoginForm from './loginForm/LoginForm'
 import SignUpForm from './signUpForm/SignUpForm'
 
-export default function Login() {
+export default function Login({ onLogin }) {
 
     const [isLoginShown, toggleIsLoginShown] = useBoolean(true);
 
@@ -11,7 +11,7 @@ export default function Login() {
         <div>
             {
                 isLoginShown
-                    ? <LoginForm />
+                    ? <LoginForm onLogin={onLogin} />
                     : <SignUpForm />
             }
 

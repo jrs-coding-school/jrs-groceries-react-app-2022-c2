@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './NavBar.css'
 import { useBoolean } from '../../hooks/UseBoolean';
 import Modal from '../modal/Modal';
@@ -6,9 +6,12 @@ import Login from '../login/Login';
 import Cart from '../cart/cart/Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
+import UserContext from '../../hooks/UserContext';
 
 
 export default function NavBar() {
+
+    const { activeUser } = useContext(UserContext)
 
     const [isModalOpen, toggleModalOpen] = useBoolean(false);
     const [shoppingCart, toggleShoppingCart] = useBoolean(false)
@@ -22,12 +25,25 @@ export default function NavBar() {
                     <div>Search Bar</div>
                     <div>Delivery/Pickup</div>
                     <button onClick={(toggleShoppingCart)}>Cart</button>
-                    <button onClick={toggleModalOpen}>Login</button>
+
+                    {activeUser
+                        ? (
+                            <>
+                                <div>user: {activeUser.email}</div>
+                                <button>logout</button>
+                            </>
+                        )
+                        : <button onClick={toggleModalOpen}>Login</button>
+                    }
+
                 </div>
 
                 {isModalOpen && (
                     <Modal>
-                        <Login />
+                        <Login onLogin={() => {
+                            // close modal
+                            toggleModalOpen();
+                        }} />
                     </Modal>
                 )}
 

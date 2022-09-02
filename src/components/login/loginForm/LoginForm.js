@@ -1,24 +1,138 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import './LoginForm.css'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useApi } from '../../../services/api.service';
+import UserContext from '../../../hooks/UserContext';
 
-export default function LoginForm() {
+export default function LoginForm({ onLogin }) {
+
+    const { login } = useContext(UserContext)
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+    const [isLoading, setIsLoading] = useState(false)
+    const [wasLoginFailed, setWasLoginFailed] = useState(false);
+    const [isPasswordVisible, setisPasswordVisible] = useState(false);
+
+    const api = useApi();
+
+    function handleFormSubmit(e) {
+        e.preventDefault()
+
+        setIsLoading(true);
+        setWasLoginFailed(false);
+
+        attemptLogIn();
+        // setTimeout(() => {
+        // }, 500);
+    }
+
+    function handleInputChange(e) {
+        let { name, value } = e.target
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    }
+
+    function attemptLogIn() {
+        console.log('logging in');
+
+        api.login(formData)
+            .then(results => {
+                let user = results.data.user;
+                // navigate('/')
+                // context -> login(user)
+                login && login(user);
+                onLogin && onLogin(user)
+            }).catch(err => {
+                console.error(err);
+                setWasLoginFailed(true)
+            }).finally(() => {
+                console.log('done loading');
+                setIsLoading(false)
+
+            })
+    }
 
     return (
 
-        <form className='login-form'>
+        <form className='login-form'
+            onSubmit={handleFormSubmit}>
+
             <div className='username'>
-                <label>Username: </label>
-                <input type="text" />
+                <label
+                    htmlFor='loginEmailInput'>
+                    Email:
+                </label>
+
+                <input
+                    type='email'
+                    name='email'
+                    value={formData.email}
+                    onChange={handleInputChange}
+
+                    className='email'
+                    required
+                    placeholder='email@host.com'
+                    id='loginEmailInput'
+                />
             </div>
 
-            <div className='password'>
-                <label>Password: </label>
-                <input type="text" />
+            <div>
+                <label htmlFor='loginPasswordInput'>Password: </label>
+                <input
+                    type={isPasswordVisible ? "text" : "password"}
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+
+                    className="password"
+                    required
+                    id='loginPasswordInput'
+                />
             </div>
 
-            <button>Log In</button>
-        </form>
+            <br />
+
+            <input
+                type="checkbox"
+                checked={isPasswordVisible}
+                onChange={(e) => {
+                    setisPasswordVisible(e.target.checked);
+                }}
+
+                className="password-visible"
+                id="loginPasswordVisibleInput"
+            />
+            <label
+                className="show-password"
+                htmlFor="loginPasswordVisibleInput">
+                Show&nbsp;Password
+            </label>
+
+            <div className={"login-failed " + (wasLoginFailed && 'visible')} >
+                Your email or password was incorrect
+            </div>
+
+            {!isLoading
+                ? (
+                    <button
+                        disabled={!formData.email || !formData.password}
+                        type="submit"
+                    >
+                        Log In
+                    </button>
+                )
+                : <div className="loader-spin-root">
+                    <div className="circle">
+
+                    </div>
+                </div>}
+
+        </form >
 
 
     )
