@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useApi } from '../../../services/api.service';
+import http from '../../../services/api.service';
 import './SignUpForm.css'
 
 export default function SignUpForm() {
@@ -15,7 +15,6 @@ export default function SignUpForm() {
     const [isEmailTaken, setIsEmailTaken] = useState(true);
     const [debounceTimer, setDebounceTimer] = useState(null);
 
-    const api = useApi();
     const [wasSignUpFailed, setWasSignUpFailed] = useState(false);
 
     useEffect(() => {
@@ -46,7 +45,7 @@ export default function SignUpForm() {
     };
 
     function checkEmailAvailability() {
-        api.getUserByEmail(formData.email)
+        http.getUserByEmail(formData.email)
             .then(res => {
                 setIsEmailTaken(true);
             }).catch(err => {
@@ -69,7 +68,7 @@ export default function SignUpForm() {
     }
 
     function attemptSignUp() {
-        api.createUser(formData)
+        http.createUser(formData)
             .then(res => {
                 // do something
                 console.log(res)

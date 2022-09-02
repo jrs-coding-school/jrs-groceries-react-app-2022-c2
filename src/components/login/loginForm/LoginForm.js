@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import './LoginForm.css'
 import { useNavigate } from 'react-router-dom';
-import { useApi } from '../../../services/api.service';
+import http from '../../../services/api.service';
 import UserContext from '../../../hooks/UserContext';
 
 export default function LoginForm({ onLogin }) {
@@ -16,7 +16,6 @@ export default function LoginForm({ onLogin }) {
     const [wasLoginFailed, setWasLoginFailed] = useState(false);
     const [isPasswordVisible, setisPasswordVisible] = useState(false);
 
-    const api = useApi();
 
     function handleFormSubmit(e) {
         e.preventDefault()
@@ -40,7 +39,7 @@ export default function LoginForm({ onLogin }) {
     function attemptLogIn() {
         console.log('logging in');
 
-        api.login(formData)
+        http.login(formData)
             .then(results => {
                 let user = results.data.user;
                 // navigate('/')
