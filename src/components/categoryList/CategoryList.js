@@ -27,7 +27,7 @@ export default function CategoryList() {
     return (
         <div className='cat-container flex'>
             {categories.map(category => (
-                <Link to={`/products/${category}`} key={category} >
+                <Link to={`/products/category/${category}`} key={category} >
                     <CategoryCard category={category} />
                 </Link>
             ))}
