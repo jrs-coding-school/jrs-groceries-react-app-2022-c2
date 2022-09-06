@@ -5,8 +5,9 @@ import Modal from '../modal/Modal';
 import Login from '../login/Login';
 import Cart from '../cart/cart/Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
+import { faCircleXmark, faHouse, faRightFromBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import UserContext from '../../hooks/UserContext';
+import { Link } from 'react-router-dom';
 
 
 export default function NavBar() {
@@ -16,25 +17,70 @@ export default function NavBar() {
     const [isModalOpen, toggleModalOpen] = useBoolean(false);
     const [shoppingCart, toggleShoppingCart] = useBoolean(false)
 
+    const [isMethodDelivery, toggleMethod] = useBoolean(true);
+
     return (
         <>
             <div className='nav-root'>
                 <div className='nav-bar' >
-                    <div>Home</div>
-                    <div>Search Bar</div>
-                    <div>Delivery/Pickup</div>
-                    <button onClick={(toggleShoppingCart)}>Cart</button>
+                    <div className='left'>
+                        <Link to="/">
+                            <FontAwesomeIcon icon={faHouse} className='home-button icon'>
+                            </FontAwesomeIcon>
+                        </Link>
+                        <input type="text" className='search-bar' />
+                    </div>
 
-                    {activeUser
-                        ? (
-                            <>
-                                <div>user: {activeUser.email}</div>
-                                <button onClick={logout}>logout</button>
-                            </>
-                        )
-                        : <button onClick={toggleModalOpen}>Login</button>
-                    }
+                    <div className='right'>
+                        <div className='method'>
+                            <div
+                                className={`delivery ${isMethodDelivery ? 'selected' : ''}`}
+                                onClick={(toggleMethod)}>
+                                Delivery
+                            </div>
+                            <div
+                                className={`pick-up ${isMethodDelivery ? '' : 'selected'}`}
+                                onClick={(toggleMethod)}>
+                                Pick Up
+                            </div>
+                        </div>
+                        {activeUser
+                            ? (
+                                <>
+                                    <div>{activeUser.email}</div>
+                                    <button className='cart icon' onClick={(toggleShoppingCart)}>
+                                        <FontAwesomeIcon
+                                            icon={faCartShopping}>
+                                        </FontAwesomeIcon>
+                                    </button>
+                                    <button onClick={logout} className="logout icon">
+                                        <FontAwesomeIcon
+                                            icon={faRightFromBracket} >
+                                        </FontAwesomeIcon>
+                                    </button>
+                                </>
+                            )
+                            :
+                            <div>
+                                <button className='cart' onClick={(toggleShoppingCart)}>
+                                    <FontAwesomeIcon
+                                        icon={faCartShopping}>
+                                    </FontAwesomeIcon>
+                                </button>
+
+                                <button onClick={toggleModalOpen}>Login</button>
+                            </div>
+                        }
+
+                    </div>
+
+
+
+
+
                 </div>
+
+
 
                 {isModalOpen && (
                     <Modal>
@@ -46,7 +92,12 @@ export default function NavBar() {
                 )}
 
                 <div className={`side-menu cart ${shoppingCart ? 'visible' : 'hidden'}`}>
-                    <FontAwesomeIcon className='exit' icon={faCircleXmark} onClick={(toggleShoppingCart)}></FontAwesomeIcon>
+                    <FontAwesomeIcon
+                        className='exit'
+                        icon={faCircleXmark}
+                        onClick={(toggleShoppingCart)}>
+
+                    </FontAwesomeIcon>
                     <Cart />
                 </div>
             </div>
