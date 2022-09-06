@@ -11,11 +11,10 @@ import UserContext from '../../hooks/UserContext';
 
 export default function NavBar() {
 
-    const { activeUser } = useContext(UserContext)
+    const { activeUser, logout } = useContext(UserContext)
 
     const [isModalOpen, toggleModalOpen] = useBoolean(false);
     const [shoppingCart, toggleShoppingCart] = useBoolean(false)
-
 
     return (
         <>
@@ -30,12 +29,11 @@ export default function NavBar() {
                         ? (
                             <>
                                 <div>user: {activeUser.email}</div>
-                                <button>logout</button>
+                                <button onClick={logout}>logout</button>
                             </>
                         )
                         : <button onClick={toggleModalOpen}>Login</button>
                     }
-
                 </div>
 
                 {isModalOpen && (
