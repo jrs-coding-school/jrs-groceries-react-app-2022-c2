@@ -1,30 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './InfoForm.css'
 
-export default function InfoForm({ onSubmit, onCancel, submitText }) {
+export default function InfoForm({ onSubmit }) {
 
     let initialState = {
         email: '',
         firstName: '',
         lastName: '',
-        phoneNumber: '',
-        address: '',
-        apartmentNumber: '',
+        phoneNumber1: '',
+        phoneNumber2: '',
+        phoneNumber3: '',
+        address1: '',
+        address2: '',
         city: '',
         state: '',
         zipCode: '',
+        deliveryInstructions: ''
     }
 
-    let phoneRef1 = useRef()
     let phoneRef2 = useRef()
     let phoneRef3 = useRef()
+    let addressRef = useRef()
 
     const [formData, setFormData] = useState(initialState)
-    const descriptionInputRef = useRef()
+    const emailInputRef = useRef()
 
 
     useEffect(() => {
-        descriptionInputRef.current.focus();
+        emailInputRef.current.focus();
     }, [])
 
     function handleInputChange(e) {
@@ -37,11 +40,67 @@ export default function InfoForm({ onSubmit, onCancel, submitText }) {
         });
     }
 
+    function handlePhoneInputChange(e) {
+        // if number is now 3 digits long, focus next input
+        focusNextPhoneInput(e)
+    }
+
+    function focusNextPhoneInput(e) {
+        e.target.value += ""; // string type cast
+        // check if input is 3 digits now
+        if (e.target.name == 'phoneNumber1') {
+            limitInputLength(e, 3)
+            if (e.target.value.length >= 3) {
+                phoneRef2.current.focus();
+            }
+        } else if (e.target.name == 'phoneNumber2') {
+            limitInputLength(e, 3)
+            if (e.target.value.length >= 3) {
+                phoneRef3.current.focus();
+            }
+        } else {
+            // on number 3
+            limitInputLength(e, 4)
+            if (e.target.value.length >= 4) {
+                addressRef.current.focus();
+            }
+        }
+    }
+
+    function limitInputLength(e, maxLength) {
+        let name = e.target.name;
+        let value = e.target.value;
+
+        if (value !== '') {
+            value = String(value); // string type cast
+            value = value.slice(0, maxLength); // slice string
+            value = Number(value); // number type cast
+        }
+
+        console.log(value)
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    }
+
     function handleFormSubmit(e) {
         e.preventDefault()
-        console.log(formData)
+        let formatedData = {
+            email: formData.email,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            phoneNumber: "" + formData.phoneNumber1 + formData.phoneNumber2 + formData.phoneNumber3,
+            address: formData.address1,
+            apartmentNumber: formData.address2,
+            city: formData.city,
+            state: formData.state,
+            zipCode: formData.zipCode,
+            deliveryInstructions: formData.deliveryInstructions
+        }
+        console.log(formatedData)
         if (onSubmit) {
-            onSubmit(formData)
+            onSubmit(formatedData)
         }
     }
 
@@ -59,14 +118,14 @@ export default function InfoForm({ onSubmit, onCancel, submitText }) {
                         required
                         placeholder='name@email.com'
                         id='email'
-                        ref={descriptionInputRef}
+                        ref={emailInputRef}
                     />
                 </div>
                 <div className='first-name'>
                     <label htmlFor='first-name'>First Name:</label>
                     <input
                         type='text'
-                        name='first-name'
+                        name='firstName'
                         value={formData.firstName}
                         onChange={handleInputChange}
                         required
@@ -78,7 +137,7 @@ export default function InfoForm({ onSubmit, onCancel, submitText }) {
                     <label htmlFor='last-name'>Last Name:</label>
                     <input
                         type='text'
-                        name='last-name'
+                        name='lastName'
                         value={formData.lastName}
                         onChange={handleInputChange}
                         required
@@ -87,36 +146,41 @@ export default function InfoForm({ onSubmit, onCancel, submitText }) {
                     />
                 </div>
                 <div className='phone-number'>
-                    <label htmlFor='phone-number'>Phone Number:</label>
+                    <label htmlFor='phone-number-1'>Phone Number:</label>
+                    (
                     <input
                         type='number'
                         name='phoneNumber1'
-                        value={formData.phoneNumber}
-                        onChange={handleInputChange}
+                        value={formData.phoneNumber1}
+                        onChange={handlePhoneInputChange}
                         required
+                        className='phone'
                         placeholder='555'
-                        ref={phoneRef1}
-                        id='phone-number'
+                        id='phone-number-1'
                     />
+                    )
                     <input
                         type='number'
                         name='phoneNumber2'
-                        value={formData.phoneNumber}
-                        onChange={handleInputChange}
+                        value={formData.phoneNumber2}
+                        onChange={handlePhoneInputChange}
                         required
+                        className='phone'
                         placeholder='555'
                         ref={phoneRef2}
-                        id='phone-number'
+                        id='phone-number-2'
                     />
+
                     <input
                         type='number'
                         name='phoneNumber3'
-                        value={formData.phoneNumber}
-                        onChange={handleInputChange}
+                        value={formData.phoneNumber3}
+                        onChange={handlePhoneInputChange}
                         required
-                        placeholder='555'
+                        className='phone'
+                        placeholder='5555'
                         ref={phoneRef3}
-                        id='phone-number'
+                        id='phone-number-3'
                     />
                 </div>
             </div>
@@ -125,11 +189,12 @@ export default function InfoForm({ onSubmit, onCancel, submitText }) {
                     <label htmlFor='address'>Address:</label>
                     <input
                         type='text'
-                        name='address'
-                        value={formData.address}
+                        name='address1'
+                        value={formData.address1}
                         onChange={handleInputChange}
                         required
                         placeholder='123 Broad St.'
+                        ref={addressRef}
                         id='address'
                     />
                 </div>
@@ -137,8 +202,8 @@ export default function InfoForm({ onSubmit, onCancel, submitText }) {
                     <label htmlFor='apartmentNumber'>Apt/Suite:</label>
                     <input
                         type='text'
-                        name='apartmentNumber'
-                        value={formData.apartmentNumber}
+                        name='address2'
+                        value={formData.address2}
                         onChange={handleInputChange}
                         required
                         placeholder='ex. 13A, 1109, B'
@@ -159,18 +224,68 @@ export default function InfoForm({ onSubmit, onCancel, submitText }) {
                 </div>
                 <div className='state'>
                     <label htmlFor='state'>State:</label>
-                    <input
-                        type='text'
+                    <select
                         name='state'
                         value={formData.state}
                         onChange={handleInputChange}
-                        required
-                        placeholder='SC'
-                        id='state'
-                        maxLength='2'
-                    />
+                    >
+                        <option value='' disabled>--select a state--</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+
+                    </select>
                 </div>
-                <div className='zipCode'>
+
+                <div className='zip-code'>
                     <label htmlFor='zipCode'>Zip Code:</label>
                     <input
                         type='number'
@@ -184,20 +299,24 @@ export default function InfoForm({ onSubmit, onCancel, submitText }) {
                     />
                 </div>
             </div>
-
-
-
-            <div className='buttons'>
-                <button
-                    onClick={() => {
-                        if (onCancel) {
-                            onCancel()
-                        }
-                    }}
-                    type='button'>Cancel</button>
-                <button type='submit' className='primary'>{submitText}</button>
+            <div className='delivery-instructions'>
+                <label htmlFor='deliveryInstructions'> Delivery Instructions:</label>
+                <textarea
+                    type='text'
+                    name='deliveryInstructions'
+                    value={formData.deliveryInstructions}
+                    onChange={handleInputChange}
+                    placeholder='Instructions for delivery (optional)'
+                    id='deliveryInstructions'
+                />
             </div>
 
+            <div className='buttons'>
+
+                <button
+                    type='submit'
+                >Submit</button>
+            </div>
         </form>
     )
 }

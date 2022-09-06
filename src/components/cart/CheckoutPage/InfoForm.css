@@ -1,0 +1,25 @@
+.item-form-root .phone {
+    width: 3rem;
+}
+
+.item-form-root .phone:nth-child(4) {
+    width: 3.5rem;
+}
+
+.item-form-root {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 10px;
+    max-width: 400px;
+}
+
+.item-form-root label {
+    display: block;
+}
+
+.item-form-root input {
+    width: 100%;
+    box-sizing: border-box;
+}
