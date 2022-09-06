@@ -8,6 +8,7 @@ import HomePage from './components/homePage/HomePage'
 import NavBar from './components/navBar/NavBar'
 import CategoryPage from './components/categoryPage/CategoryPage'
 import Cart from './components/cart/cart/Cart'
+import CheckoutPage from './components/cart/CheckoutPage/CheckoutPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,7 +20,7 @@ root.render(
           <Route path="/products/" element={<CategoryPage />} />
           <Route path="/products/category/:category" element={<CategoryPage />} />
           <Route path="cart" element={<Cart />} />
-
+          <Route path='/checkout' element={<CheckoutPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

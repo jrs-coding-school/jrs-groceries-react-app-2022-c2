@@ -1,0 +1,23 @@
+import React from 'react'
+import InfoForm from './InfoForm'
+import OrderTotal from './OrderTotal'
+import './CheckoutPage.css'
+
+export default function CheckoutPage() {
+    return (
+        <div className='checkout-page'>
+            <div className='info-form'>
+                <h1>
+                    Customer Information
+                </h1>
+                <InfoForm />
+            </div>
+            <div className='order-total'>
+                <h1>
+                    Order Total
+                </h1>
+                <OrderTotal />
+            </div>
+        </div>
+    )
+}
