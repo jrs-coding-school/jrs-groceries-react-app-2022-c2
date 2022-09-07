@@ -4,6 +4,7 @@ import ConfirmCheckout from './ConfirmCheckout'
 import ContactInfoForm from './ContactInfoForm'
 import ShippingForm from './ShippingForm'
 import './MultiStepForm.css'
+import PhoneInput from '../PhoneInput/PhoneInput'
 
 export default function MultiStepForm() {
 
@@ -40,19 +41,22 @@ export default function MultiStepForm() {
         setCurrentStep(currentStep + 1);
     }
 
+    function prevStep() {
+        setCurrentStep(currentStep - 1);
+    }
+
     const formList = [
 
         <ContactInfoForm formData={contactFormData}
             setFormData={setContactFormData}
             onSubmit={() => {
-                // update the form data
                 console.log("contact info updated")
                 nextStep();
             }} />,
         <ShippingForm formData={shippingFormData}
             setFormData={setShippingFormData}
+            onBackClicked={prevStep}
             onSubmit={(skipBilling) => {
-                // update the form data
                 if (skipBilling) {
                     // set billing to be the same as the shipping
                     // ideally skip straight to the confirmation page 
@@ -63,8 +67,8 @@ export default function MultiStepForm() {
             }} />,
         <BillingForm formData={billingFormData}
             setFormData={setBillingFormData}
+            onBackClicked={prevStep}
             onSubmit={() => {
-                // update the form data
                 setFormData()
                 // also => submit the whole form
                 nextStep()

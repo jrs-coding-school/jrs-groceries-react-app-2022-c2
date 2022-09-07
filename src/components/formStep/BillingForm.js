@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useBoolean } from '../../hooks/UseBoolean';
 
-export default function BillingForm({ formData, setFormData, onSubmit }) {
+export default function BillingForm({ formData, setFormData, onSubmit, onBackClicked }) {
 
     let addressRef = useRef();
 
@@ -212,6 +212,13 @@ export default function BillingForm({ formData, setFormData, onSubmit }) {
                     maxLength='3'
                 />
             </div>
+
+            <button type='button'
+                onClick={() => {
+                    onBackClicked && onBackClicked();
+                }}>
+                Back To Shipping Info
+            </button>
 
             <button type='submit'>
                 Submit
