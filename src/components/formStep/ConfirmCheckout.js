@@ -8,68 +8,51 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
             <h2>Contact Info</h2>
             <ul>
                 <li>
-                    E-Mail: {contactFormData.email}
+                    <b>E-Mail: </b>
+                    {contactFormData.email}
                 </li>
                 <li>
-                    First Name: {contactFormData.firstName}
+                    <b>Name: </b> {contactFormData.firstName + ' ' + contactFormData.lastName}
                 </li>
                 <li>
-                    Last Name: {contactFormData.lastName}
-                </li>
-                <li>
-                    Phone Number: {contactFormData.phoneNumber}
+                    <b>Phone Number: </b> {contactFormData.phoneNumber}
                 </li>
             </ul>
-            <h2>Shipping Info</h2>
+
+            <h2>Shipping Info:</h2>
             <ul>
-                <li>
-                    Address 1: {shippingFormData.address1}
-                </li>
-                <li>
-                    Address 2: {shippingFormData.address2}
-                </li>
-                <li>
-                    City: {shippingFormData.city}
-                </li>
-                <li>
-                    State:{shippingFormData.state}
-                </li>
-                <li>
-                    Zip Code:{shippingFormData.zipCode}
-                </li>
-                <li>
-                    Delivery Instructions: {shippingFormData.deliveryInstructions}
-                </li>
+                {shippingFormData.address1}
+                {shippingFormData.address2 || ''}
+                <br />
+                {shippingFormData.city}, {shippingFormData.state}
+                <br />
+                {shippingFormData.zipCode}
+
             </ul>
             <h2>Billing Info</h2>
             <ul>
-                <li>
-                    Address 1: {billingFormData.address1}
-                </li>
-                <li>
-                    Address 2: {billingFormData.address2}
-                </li>
-                <li>
-                    City: {billingFormData.city}
-                </li>
-                <li>
-                    State: {billingFormData.state}
-                </li>
-                <li>
-                    Zip Code: {billingFormData.zipCode}
-                </li>
+                <h4>Billing Address</h4>
+                {billingFormData.address1}
+                {billingFormData.address2 || ''}
                 <br />
+                {billingFormData.city}, {shippingFormData.state}
+                <br />
+                {billingFormData.zipCode}
+                <br />
+            </ul>
+            <ul>
+                <h4>Card Info</h4>
                 <li>
-                    Cardholder Name: {billingFormData.cardholderName}
+                    <b>Cardholder Name: </b> {billingFormData.cardholderName}
                 </li>
                 <li>
-                    Card Number:{billingFormData.cardNumber}
+                    <b>Card Number: </b>{billingFormData.cardNumber}
                 </li>
                 <li>
-                    Expiration Date:{billingFormData.expirationDate}
+                    <b>Expiration Date: </b>{billingFormData.expirationDate}
                 </li>
                 <li>
-                    CVV: {billingFormData.cvv}
+                    <b>CVV: </b> {billingFormData.cvv}
                 </li>
             </ul>
             <button>Back</button>

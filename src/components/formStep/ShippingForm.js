@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { useBoolean } from '../../hooks/UseBoolean';
 
 
-export default function ShippingForm({ formData, setFormData, onSubmit }) {
+export default function ShippingForm({ formData, setFormData, onSubmit, onBackClicked }) {
 
     const [skipBilling, toggleSkipBilling] = useBoolean(false);
 
@@ -39,7 +39,7 @@ export default function ShippingForm({ formData, setFormData, onSubmit }) {
         <form className='address-root'
             onSubmit={(e) => {
                 e.preventDefault();
-                onSubmit && onSubmit()
+                onSubmit && onSubmit(skipBilling)
             }}>
 
 
@@ -179,8 +179,16 @@ export default function ShippingForm({ formData, setFormData, onSubmit }) {
                     onChange={toggleSkipBilling}
                 />
             </div>
+
+            <button type='button'
+                onClick={() => {
+                    onBackClicked && onBackClicked();
+                }}>
+                Back To Shipping Info
+            </button>
+
             <button type='submit'>
-                Billing Info
+                Go To Billing Info
             </button>
         </form>
     )
