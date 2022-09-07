@@ -16,10 +16,12 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="" element={<HomePage />} />
-          <Route path="/products/" element={<CategoryPage />} />
+          <Route path="" element={<HomePage />}>
+            <Route path="/home/:category" element={<CategoryPage />} />
+          </Route>
+          <Route path="/products" element={<CategoryPage />} />
           <Route path="/products/category/:category" element={<CategoryPage />} />
-          <Route path="cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path='/checkout' element={<CheckoutPage />} />
         </Route>
       </Routes>
