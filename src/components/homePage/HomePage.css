@@ -1,0 +1,21 @@
+.homepage-root {
+    background-color: #c7cfd5;
+}
+
+.homepage-root .image-container {
+    display: flex;
+    max-width: 100%;
+    overflow-x: hidden;
+    justify-content: center;
+}
+
+.homepage-root .centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #E6F4F1;
+    font-size: 50pt;
+    font-weight: bold;
+
+}

@@ -11,9 +11,9 @@ export default function CategoryItem({ name, price, size, image }) {
             <div className='product-info'>
                 <div className='price'>${price}</div>
                 <div className='name'>{name}</div>
-                <button className='add-item'>+</button>
                 <div className='size'>{size}</div>
             </div>
+            <button className='add-item'>+ Add to Cart</button>
 
         </div>
 

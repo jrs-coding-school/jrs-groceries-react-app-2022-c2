@@ -28,7 +28,7 @@ export default function NavBar() {
                             <FontAwesomeIcon icon={faHouse} className='home-button icon'>
                             </FontAwesomeIcon>
                         </Link>
-                        <input type="text" className='search-bar' />
+                        <input type="text" className='search-bar' placeholder='Search for milk, chicken, apples, etc...' />
                     </div>
 
                     <div className='right'>
@@ -47,31 +47,28 @@ export default function NavBar() {
                         {activeUser
                             ? (
                                 <>
-                                    <div>{activeUser.email}</div>
+                                    <div className='active-user'>{activeUser.email}</div>
                                     <button className='cart icon' onClick={(toggleShoppingCart)}>
                                         <FontAwesomeIcon
                                             icon={faCartShopping}>
                                         </FontAwesomeIcon>
                                     </button>
-                                    <button onClick={logout} className="logout icon">
-                                        <FontAwesomeIcon
-                                            icon={faRightFromBracket} >
-                                        </FontAwesomeIcon>
+                                    <button onClick={logout} className="logout">
+                                        Logout
                                     </button>
                                 </>
                             )
                             :
-                            <div>
-                                <button className='cart' onClick={(toggleShoppingCart)}>
+                            <div className="logged-out">
+                                <button className='cart icon' onClick={(toggleShoppingCart)}>
                                     <FontAwesomeIcon
                                         icon={faCartShopping}>
                                     </FontAwesomeIcon>
                                 </button>
 
-                                <button onClick={toggleModalOpen}>Login</button>
+                                <button onClick={toggleModalOpen} className='login'>Login</button>
                             </div>
                         }
-
                     </div>
 
 

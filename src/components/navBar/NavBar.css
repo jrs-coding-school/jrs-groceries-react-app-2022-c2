@@ -2,10 +2,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1em;
 
 
-    background-color: #5673e9;
-    color: rgb(233, 229, 229);
+    background: linear-gradient(45deg, #3DC08D, #47D9A8);
+    color: #F2FAFF;
 }
 
 .nav-root .nav-bar>div {
@@ -14,32 +15,68 @@
 
 .nav-root .right {
     display: flex;
-
     align-items: center;
     gap: 50px;
 }
 
+.nav-root .left {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
 .nav-root .icon {
     color: white;
-    font-size: 15pt;
+    font-size: 20pt;
 }
 
 .nav-root .search-bar {
-    margin: 1em;
-    width: 300px;
+    color: #505251;
+    width: 500px;
+    padding: 1em;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    word-spacing: 2px;
 }
 
-.nav-root .logout {
-    background-color: #5673e9;
-    color: white;
+.nav-root .search-bar:focus {
+    outline: none;
+    border: #289c6f 3px solid;
+    border-radius: 4px;
+
+}
+
+.nav-root .logout,
+.nav-root .login {
+    background-color: #F2FAFF;
+    color: #505251;
+    padding: 1em;
+    border-radius: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.nav-root .active-user {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-root .logout:hover {
+    background-color: #e0e3e5;
+    color: #505251;
+    box-shadow: 0px 0px 5px 5px #cfd1d1 inset;
+
 }
 
 .nav-root .cart {
-    background-color: #5673e9;
+    background-color: #47D9A8;
     color: white;
 }
 
-.side-menu {
+.nav-root .side-menu {
     border: solid red 2px;
     position: fixed;
     top: 0;
@@ -53,7 +90,7 @@
     transition: 0.5s;
 }
 
-.side-menu.visible {
+.nav-root .side-menu.visible {
     transform: none;
 }
 
@@ -68,21 +105,25 @@
 .nav-root .method {
     display: flex;
     gap: 5px;
-    border: white solid 1px;
-    border-radius: 4px;
+    border: white solid 2px;
+    border-radius: 6px;
     margin: .5em 0;
+}
 
-
+.nav-root .logged-out {
+    display: flex;
+    gap: 20px;
 }
 
 .nav-root .method>div {
-    padding: .5em;
+    padding: 1em;
 }
 
 .nav-root .method .selected {
     background-color: white;
-    color: rgb(86, 115, 233);
+    color: #47D9A8;
     transition: .3s;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 550px) {
