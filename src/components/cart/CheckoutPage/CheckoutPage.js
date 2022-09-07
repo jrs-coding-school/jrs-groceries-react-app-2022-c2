@@ -2,6 +2,7 @@ import React from 'react'
 import InfoForm from './InfoForm'
 import OrderTotal from './OrderTotal'
 import './CheckoutPage.css'
+import MultiStepForm from '../../formStep/MultiStepForm'
 
 export default function CheckoutPage() {
     return (
@@ -10,7 +11,7 @@ export default function CheckoutPage() {
                 <h1>
                     Customer Information
                 </h1>
-                <InfoForm />
+                <MultiStepForm />
             </div>
             <div className='order-total'>
                 <h1>
