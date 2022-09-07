@@ -48,11 +48,13 @@
     width: fit-content;
     background-color: #3DC08D;
     border: none;
-    color: white;
+    color: #F2FAFF;
     font-size: 16pt;
+    transition: .3s;
 }
 
 .product-card .add-item:hover {
-    color: lightseagreen;
-    background-color: antiquewhite;
+    color: #F2FAFF;
+    background-color: #3dc08d;
+    box-shadow: 0px 0px 3px 4px #3f856b inset;
 }
