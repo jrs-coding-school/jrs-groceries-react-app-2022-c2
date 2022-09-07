@@ -1,5 +1,4 @@
 import React from 'react'
-import InfoForm from './InfoForm'
 import OrderTotal from './OrderTotal'
 import './CheckoutPage.css'
 import MultiStepForm from '../../formStep/MultiStepForm'
