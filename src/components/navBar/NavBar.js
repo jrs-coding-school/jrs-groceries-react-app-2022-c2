@@ -60,27 +60,26 @@ export default function NavBar() {
                             )
                             :
                             <div className="logged-out">
-                                <button className='cart icon' onClick={(toggleShoppingCart)}>
+                                <button
+                                    className='cart icon'
+                                    onClick={(toggleShoppingCart)}>
                                     <FontAwesomeIcon
                                         icon={faCartShopping}>
                                     </FontAwesomeIcon>
                                 </button>
 
-                                <button onClick={toggleModalOpen} className='login'>Login</button>
+                                <button
+                                    onClick={toggleModalOpen}
+                                    className='login'>
+                                    Login
+                                </button>
                             </div>
                         }
                     </div>
-
-
-
-
-
                 </div>
 
-
-
                 {isModalOpen && (
-                    <Modal>
+                    <Modal toggleModalOpen={toggleModalOpen}>
                         <Login onLogin={() => {
                             // close modal
                             toggleModalOpen();

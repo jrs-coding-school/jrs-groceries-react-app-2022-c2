@@ -1,6 +1,7 @@
 .category {
     text-decoration: none;
-    color: white;
+    color: #F2FAFF;
     font-weight: bold;
-
+    font-size: 20pt;
+    transition: .3s;
 }

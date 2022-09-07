@@ -2,6 +2,7 @@ import React from 'react'
 import './HomePage.css'
 import CategoryList from '../categoryList/CategoryList'
 import QuickShopCarousel from '../quickShopCarousel/QuickShopCarousel'
+import { Outlet } from 'react-router-dom'
 
 export default function HomePage() {
     return (
@@ -15,6 +16,7 @@ export default function HomePage() {
             <QuickShopCarousel />
             <div className="centered">A new way to shop</div>
             <CategoryList />
+            <Outlet />
         </div>
     )
 }

@@ -16,13 +16,11 @@ export default function CategoryPage() {
 
     function getProducts() {
         if (category) {
-
             http.getProductsByCategory(category)
                 .then((response) => {
                     setProducts(response.data);
                 });
-        }
-        else {
+        } else {
             http.getAllProducts()
                 .then((response) => {
                     setProducts(response.data);
@@ -31,7 +29,7 @@ export default function CategoryPage() {
     }
 
     return (
-        <div>
+        <div className='category-root'>
             <h2>
                 {category}
             </h2>
