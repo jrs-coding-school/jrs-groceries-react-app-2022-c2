@@ -1,0 +1,15 @@
+.carousel-root .featured-products-container {
+    display: flex;
+    max-width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel-root .carousel-actual {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-root .icon {
+    font-size: 30pt;
+}
