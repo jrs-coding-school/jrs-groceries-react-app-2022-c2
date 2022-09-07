@@ -14,6 +14,10 @@ function getFeaturedProducts() {
     return axios.get(`${BASE_URL}/products/featured`)
 }
 
+function getProductsById(productId) {
+    return axios.get(`${BASE_URL}/products/${productId}`)
+}
+
 function getAllUsers() {
     return axios.get(`${BASE_URL}/users`)
 }
@@ -57,5 +61,6 @@ export default {
     deleteUserById,
     getAllProducts,
     getProductsByCategory,
-    getFeaturedProducts
+    getFeaturedProducts,
+    getProductsById
 }
