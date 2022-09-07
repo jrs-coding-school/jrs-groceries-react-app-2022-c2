@@ -5,7 +5,12 @@
     display: grid;
     place-items: center;
     backdrop-filter: blur(2px);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 9999;
 }
+
 
 .modal-root .modal {
     background: linear-gradient(45deg, #28313c, #37393f);
@@ -14,4 +19,6 @@
     min-width: 70%;
     border-radius: 4px;
     padding: 2rem;
+    position: absolute;
+
 }

@@ -80,7 +80,7 @@ export default function NavBar() {
 
 
                 {isModalOpen && (
-                    <Modal>
+                    <Modal toggleModalOpen={toggleModalOpen}>
                         <Login onLogin={() => {
                             // close modal
                             toggleModalOpen();
