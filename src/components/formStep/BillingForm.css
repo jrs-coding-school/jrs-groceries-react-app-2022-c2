@@ -1,0 +1,23 @@
+.card-number {
+    display: flex;
+    width: 200px;
+    height: 22px;
+    margin: 15px;
+}
+
+.expiration-date {
+    display: flex;
+    width: 200px;
+    height: 22px;
+    margin: 15px;
+}
+
+.expiration-date .cvv {
+    margin-left: 50px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

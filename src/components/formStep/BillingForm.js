@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-
+import './BillingForm.css'
 
 export default function BillingForm({ formData, setFormData, onSubmit, onBackClicked }) {
 
@@ -10,6 +10,10 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
     let expirationMonthRef = useRef();
     let expirationYearRef = useRef();
     let cvvRef = useRef();
+
+    useEffect(() => {
+        addressRef.current.focus()
+    }, [])
 
     function handleInputChange(e) {
         let name = e.target.name;
@@ -86,6 +90,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
             }}
             className='address-root'>
 
+            <h2>Billing Address</h2>
             <div className='address'>
                 <label htmlFor='address'>Address:</label>
                 <input
@@ -185,7 +190,6 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
 
                 </select>
             </div>
-
             <div className='zip-code'>
                 <label htmlFor='zipCode'>Zip Code:</label>
                 <input
@@ -202,6 +206,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                 />
             </div>
             <br />
+            <h2>Card Info</h2>
             <div className='cardholder-name'>
                 <label htmlFor='cardholder-name'>Cardholder Name:</label>
                 <input
@@ -214,8 +219,8 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     id='cardholderName'
                 />
             </div>
+            <p>Card Number</p>
             <div className='card-number'>
-                <label htmlFor='card-number1'>Card Number:</label>
                 <input
                     type='number'
                     name='cardNumber1'
@@ -224,10 +229,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     required
                     placeholder='0000'
                     id='cardNumber1'
-                />
-            </div>
-            -
-            <div className='card-number'>
+                />-
                 <input
                     type='number'
                     name='cardNumber2'
@@ -237,10 +239,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     placeholder='0000'
                     id='cardNumber2'
                     ref={cardNumberRef2}
-                />
-            </div>
-            -
-            <div className='card-number'>
+                />-
                 <input
                     type='number'
                     name='cardNumber3'
@@ -250,10 +249,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     placeholder='0000'
                     id='cardNumber3'
                     ref={cardNumberRef3}
-                />
-            </div>
-            -
-            <div className='card-number'>
+                />-
                 <input
                     type='number'
                     name='cardNumber4'
@@ -265,8 +261,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     ref={cardNumberRef4}
                 />
             </div>
-            <div className='expiration-month'>
-                <label htmlFor='expiration-date'>Expiration Date:</label>
+            <div className='expiration-date'>
                 <input
                     type='number'
                     name='expirationMonth'
@@ -276,10 +271,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     placeholder='MM'
                     id='expirationMonth'
                     ref={expirationMonthRef}
-                />
-            </div>
-            /
-            <div className='expiration-year'>
+                />/
                 <input
                     type='number'
                     name='expirationYear'
@@ -290,10 +282,8 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     id='expirationYear'
                     ref={expirationYearRef}
                 />
-            </div>
-            <div className='cvv'>
-                <label htmlFor='cvv'>CVV:</label>
                 <input
+                    className='cvv'
                     type='number'
                     name='cvv'
                     value={formData.cvv}

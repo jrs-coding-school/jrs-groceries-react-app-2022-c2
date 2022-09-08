@@ -6,8 +6,8 @@ export default function ContactInfoForm({ formData, setFormData, onSubmit }) {
     let emailInputRef = useRef()
 
     useEffect(() => {
-        console.log(formData)
-    }, [formData]);
+        emailInputRef.current.focus()
+    }, []);
 
     function handleFormSubmit(e) {
         e.preventDefault();
