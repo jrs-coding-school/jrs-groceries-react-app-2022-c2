@@ -1,0 +1,124 @@
+.product-container {
+    background-color: #c7cfd5;
+    height: 100vh;
+    padding: 2rem;
+    position: relative;
+}
+
+.product-container .back {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.product-container .product-main {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.product-container .product-actual,
+.product-container .product-selection {
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem;
+}
+
+.product-container .product-actual {
+    display: flex;
+    width: 70%;
+
+    background-color: #d9fff64d;
+    box-shadow: 0 8px 32px 0 #a9bdb5a0;
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+.product-container .product-info {
+    text-align: left;
+    width: 50%;
+    padding: 1rem;
+}
+
+.product-container .product-info>div {
+    padding: .5rem;
+    color: #111111;
+}
+
+.product-container .name,
+.product-container .price {
+    font-size: 26pt;
+    font-weight: 700;
+}
+
+.product-container .brand {
+    font-size: 18pt;
+    font-weight: 500;
+}
+
+.product-container .category {
+    font-size: 14pt;
+    font-weight: 400;
+    font-style: italic;
+
+}
+
+.product-container .product-selection {
+    width: 20%;
+    margin: 0;
+}
+
+.product-container .product-data {
+    background: linear-gradient(45deg, #3DC08D, #47D9A8);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    color: #F2FAFF;
+
+
+    box-shadow: 0 8px 32px 0 #a9bdb5a0;
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border-radius: 10px;
+    border: 1px solid #47D9A8;
+
+}
+
+.product-container .price {
+    padding: .5rem;
+    margin-top: 1rem;
+}
+
+.product-container .size {
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.product-container .quantity {
+    margin: 1rem auto;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    padding: .5em;
+    border: none;
+    border-radius: 8px;
+    font-size: 16pt;
+    outline: none;
+}
+
+.product-container .add-item {
+    padding: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    background: linear-gradient(45deg, #3DC08D, #47D9A8);
+    color: #F2FAFF;
+    font-weight: 700;
+    font-size: 16pt;
+}
+
+.product-container .related-items {
+    text-align: left;
+}
