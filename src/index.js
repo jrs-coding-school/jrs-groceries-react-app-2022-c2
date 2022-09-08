@@ -10,6 +10,7 @@ import CategoryPage from './components/categoryPage/CategoryPage'
 import Cart from './components/cart/cart/Cart'
 import CheckoutPage from './components/cart/CheckoutPage/CheckoutPage';
 import ItemPage from './components/itemPage/ItemPage';
+import CheckoutSuccess from './components/formStep/CheckoutSuccess';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,6 +26,7 @@ root.render(
           <Route path="/products/item/:productId" element={<ItemPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path='/checkout' element={<CheckoutPage />} />
+          <Route path='/checkout/success' element={<CheckoutSuccess />} />
         </Route>
       </Routes>
     </BrowserRouter>

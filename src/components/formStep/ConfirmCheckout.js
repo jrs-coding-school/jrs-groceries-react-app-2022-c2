@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
-export default function ConfirmCheckout({ contactFormData, shippingFormData, billingFormData }) {
+export default function ConfirmCheckout({ contactFormData, shippingFormData, billingFormData, onBackClicked }) {
+
 
     return (
+
         <div>
             <h2>Contact Info</h2>
             <ul>
@@ -46,19 +49,27 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
                     <b>Cardholder Name: </b> {billingFormData.cardholderName}
                 </li>
                 <li>
-                    <b>Card Number: </b>{billingFormData.cardNumber}
+                    <b>Card Number: </b>**** **** **** {billingFormData.cardNumber4}
                 </li>
                 <li>
-                    <b>Expiration Date: </b>{billingFormData.expirationDate}
+                    <b>Expiration Date: </b>{billingFormData.expirationMonth}/{billingFormData.expirationYear}
+
                 </li>
                 <li>
                     <b>CVV: </b> {billingFormData.cvv}
                 </li>
             </ul>
-            <button>Back</button>
-            <button type='submit'>
-                Confirm
+            <button type='button'
+                onClick={() => {
+                    onBackClicked && onBackClicked();
+                }}>
+                Back To billing Info
             </button>
+
+            <Link to='/checkout/success'>
+                <button>Confirm checkout</button>
+            </Link>
+
         </div>
     )
 }
