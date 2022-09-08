@@ -4,7 +4,7 @@ import ConfirmCheckout from './ConfirmCheckout'
 import ContactInfoForm from './ContactInfoForm'
 import ShippingForm from './ShippingForm'
 import './MultiStepForm.css'
-import PhoneInput from '../PhoneInput/PhoneInput'
+import CheckoutSuccess from './CheckoutSuccess'
 
 export default function MultiStepForm() {
 
@@ -29,8 +29,12 @@ export default function MultiStepForm() {
         state: '',
         zipCode: '',
         cardholderName: '',
-        cardNumber: '',
-        expirationDate: '',
+        cardNumber1: '',
+        cardNumber2: '',
+        cardNumber3: '',
+        cardNumber4: '',
+        expirationMonth: '',
+        expirationYear: '',
         cvv: ''
     })
     const [formData, setFormData] = useState()
@@ -59,8 +63,6 @@ export default function MultiStepForm() {
             onSubmit={(skipBilling) => {
                 if (skipBilling) {
                     // set billing to be the same as the shipping
-                    // ideally skip straight to the confirmation page 
-                    // and just display all info before they finally click 'Checkout'
                     setBillingFormData(shippingFormData);
                 }
                 nextStep()
@@ -69,15 +71,17 @@ export default function MultiStepForm() {
             setFormData={setBillingFormData}
             onBackClicked={prevStep}
             onSubmit={() => {
-                setFormData()
-                // also => submit the whole form
                 nextStep()
             }} />,
 
         <ConfirmCheckout contactFormData={contactFormData}
             shippingFormData={shippingFormData}
             billingFormData={billingFormData}
-            setFormData={setFormData} />
+            setFormData={setFormData}
+            onBackClicked={prevStep}
+            onSubmit={() => {
+                nextStep()
+            }} />
     ]
 
     return (

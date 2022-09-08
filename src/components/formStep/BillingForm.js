@@ -1,9 +1,15 @@
-import React, { useRef, useState } from 'react'
-import { useBoolean } from '../../hooks/UseBoolean';
+import React, { useEffect, useRef } from 'react'
+
 
 export default function BillingForm({ formData, setFormData, onSubmit, onBackClicked }) {
 
     let addressRef = useRef();
+    let cardNumberRef2 = useRef();
+    let cardNumberRef3 = useRef();
+    let cardNumberRef4 = useRef();
+    let expirationMonthRef = useRef();
+    let expirationYearRef = useRef();
+    let cvvRef = useRef();
 
     function handleInputChange(e) {
         let name = e.target.name;
@@ -29,6 +35,47 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
             ...formData,
             [name]: value
         });
+    }
+
+    function handleCardInfoInputChange(e) {
+        // if number is now 3 digits long, focus next input
+        focusNextCardInfoInput(e)
+    }
+
+    function focusNextCardInfoInput(e) {
+        e.target.value += ""; // string type cast
+        // check if input is 3 digits now
+        if (e.target.name == 'cardNumber1') {
+            limitInputLength(e, 4)
+            if (e.target.value.length >= 4) {
+                cardNumberRef2.current.focus();
+            }
+        } else if (e.target.name == 'cardNumber2') {
+            limitInputLength(e, 4)
+            if (e.target.value.length >= 4) {
+                cardNumberRef3.current.focus();
+            }
+        } else if (e.target.name == 'cardNumber3') {
+            limitInputLength(e, 4)
+            if (e.target.value.length >= 4) {
+                cardNumberRef4.current.focus();
+            }
+        } else if (e.target.name == 'cardNumber4') {
+            limitInputLength(e, 4)
+            if (e.target.value.length >= 4) {
+                expirationMonthRef.current.focus();
+            }
+        } else if (e.target.name == 'expirationMonth') {
+            limitInputLength(e, 2)
+            if (e.target.value.length >= 2) {
+                expirationYearRef.current.focus();
+            }
+        } else {
+            limitInputLength(e, 2)
+            if (e.target.value.length >= 2) {
+                cvvRef.current.focus();
+            }
+        }
     }
 
     return (
@@ -168,33 +215,80 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                 />
             </div>
             <div className='card-number'>
-                <label htmlFor='card-number'>Card Number:</label>
+                <label htmlFor='card-number1'>Card Number:</label>
                 <input
                     type='number'
-                    name='cardNumber'
-                    value={formData.cardNumber}
-                    onChange={(e) => {
-                        limitInputLength(e, 16)
-                    }}
+                    name='cardNumber1'
+                    value={formData.cardNumber1}
+                    onChange={handleCardInfoInputChange}
                     required
-                    placeholder='0000-0000-0000-0000'
-                    id='cardNumber'
-                    maxLength='16'
+                    placeholder='0000'
+                    id='cardNumber1'
                 />
             </div>
-            <div className=''>
+            -
+            <div className='card-number'>
+                <input
+                    type='number'
+                    name='cardNumber2'
+                    value={formData.cardNumber2}
+                    onChange={handleCardInfoInputChange}
+                    required
+                    placeholder='0000'
+                    id='cardNumber2'
+                    ref={cardNumberRef2}
+                />
+            </div>
+            -
+            <div className='card-number'>
+                <input
+                    type='number'
+                    name='cardNumber3'
+                    value={formData.cardNumber3}
+                    onChange={handleCardInfoInputChange}
+                    required
+                    placeholder='0000'
+                    id='cardNumber3'
+                    ref={cardNumberRef3}
+                />
+            </div>
+            -
+            <div className='card-number'>
+                <input
+                    type='number'
+                    name='cardNumber4'
+                    value={formData.cardNumber4}
+                    onChange={handleCardInfoInputChange}
+                    required
+                    placeholder='0000'
+                    id='cardNumber4'
+                    ref={cardNumberRef4}
+                />
+            </div>
+            <div className='expiration-month'>
                 <label htmlFor='expiration-date'>Expiration Date:</label>
                 <input
                     type='number'
-                    name='expirationDate'
-                    value={formData.expirationDate}
-                    onChange={(e) => {
-                        limitInputLength(e, 4)
-                    }}
+                    name='expirationMonth'
+                    value={formData.expirationMonth}
+                    onChange={handleCardInfoInputChange}
                     required
-                    placeholder='MM/YY'
-                    id='expirationDate'
-                    maxLength='4'
+                    placeholder='MM'
+                    id='expirationMonth'
+                    ref={expirationMonthRef}
+                />
+            </div>
+            /
+            <div className='expiration-year'>
+                <input
+                    type='number'
+                    name='expirationYear'
+                    value={formData.expirationYear}
+                    onChange={handleCardInfoInputChange}
+                    required
+                    placeholder='YY'
+                    id='expirationYear'
+                    ref={expirationYearRef}
                 />
             </div>
             <div className='cvv'>
@@ -209,7 +303,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     required
                     placeholder='CVV'
                     id='cvv'
-                    maxLength='3'
+                    ref={cvvRef}
                 />
             </div>
 

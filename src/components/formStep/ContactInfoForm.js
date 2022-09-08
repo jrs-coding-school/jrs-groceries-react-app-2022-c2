@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PhoneInput from '../PhoneInput/PhoneInput';
 
 export default function ContactInfoForm({ formData, setFormData, onSubmit }) {
