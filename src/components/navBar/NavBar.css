@@ -1,12 +1,18 @@
+.nav-root {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+}
+
 .nav-root .nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1em;
-
-
     background: linear-gradient(45deg, #3DC08D, #47D9A8);
     color: #F2FAFF;
+
 }
 
 .nav-root .nav-bar>div {
@@ -17,12 +23,15 @@
     display: flex;
     align-items: center;
     gap: 50px;
+    width: 50%;
+
 }
 
 .nav-root .left {
     display: flex;
-    gap: 40px;
+    gap: 1rem;
     align-items: center;
+    width: 50%;
 }
 
 .nav-root .icon {
@@ -49,23 +58,8 @@
 
 }
 
-.nav-root .search-bar {
-    color: #505251;
-    width: 500px;
-    padding: 1em;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    word-spacing: 2px;
-}
+.nav-root .nav-search {}
 
-.nav-root .search-bar:focus {
-    outline: none;
-    border: #289c6f 3px solid;
-    border-radius: 4px;
-
-}
 
 .nav-root .logout,
 .nav-root .login {
@@ -76,7 +70,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: .3s;
-    width: 90px;
+    width: 6rem;
 
 }
 
@@ -101,8 +95,9 @@
     right: 0;
     bottom: 0;
     background-color: #F2FAFF;
+    z-index: 3;
 
-    width: fit-content;
+    width: 400px;
     transform: translateX(105%);
 
     transition: 0.5s;
@@ -128,6 +123,7 @@
     margin: .5em 0;
     transition: .3s;
     cursor: pointer;
+
 }
 
 .nav-root .method:hover {
@@ -156,7 +152,7 @@
 
 @media screen and (max-width: 550px) {
     .side-menu {
-        left: 0;
-        width: unset;
+        left: unset;
+        width: 100%;
     }
 }
