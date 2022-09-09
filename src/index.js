@@ -11,6 +11,7 @@ import Cart from './components/cart/cart/Cart'
 import CheckoutPage from './components/cart/CheckoutPage/CheckoutPage';
 import ItemPage from './components/itemPage/ItemPage';
 import CheckoutSuccess from './components/formStep/CheckoutSuccess';
+import SearchResult from './components/searchResult/SearchResult';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,11 +21,14 @@ root.render(
         <Route path="/" element={<App />}>
           <Route path="" element={<HomePage />}>
             <Route path="/home/:category" element={<CategoryPage />} />
+            <Route path="/home/search/:searchParam" element={<SearchResult />} />
           </Route>
           <Route path="/products" element={<CategoryPage />} />
           <Route path="/products/category/:category" element={<CategoryPage />} />
           <Route path="/products/item/:productId" element={<ItemPage />} />
+
           <Route path="/cart" element={<Cart />} />
+
           <Route path='/checkout' element={<CheckoutPage />} />
           <Route path='/checkout/success' element={<CheckoutSuccess />} />
         </Route>

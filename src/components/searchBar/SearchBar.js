@@ -9,7 +9,7 @@ export default function SearchBar() {
 
     function handleSearch(e) {
         e.preventDefault()
-        // navigate('/home/search/' + searchParam)
+        navigate('/home/search/' + searchParam)
     }
 
     return (

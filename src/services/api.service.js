@@ -18,6 +18,10 @@ function getProductsById(productId) {
     return axios.get(`${BASE_URL}/products/${productId}`)
 }
 
+function searchProducts(searchParam) {
+    return axios.get(`${BASE_URL}/products/search/${searchParam}`)
+}
+
 function getAllUsers() {
     return axios.get(`${BASE_URL}/users`)
 }
@@ -62,5 +66,6 @@ export default {
     getAllProducts,
     getProductsByCategory,
     getFeaturedProducts,
-    getProductsById
+    getProductsById,
+    searchProducts
 }
