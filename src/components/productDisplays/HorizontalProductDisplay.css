@@ -1,0 +1,37 @@
+.horizontal-display-root {
+    text-align: left;
+    margin: 0;
+    color: #111111;
+}
+
+.horizontal-display-root .products-container {
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+/* item cards when being flexed */
+.horizontal-display-root .products-container>* {
+    /* flex: 1 1; */
+}
+
+.horizontal-display-root h2 {
+    text-align: left;
+    margin: 1em;
+    padding: .25em;
+    font-size: 25pt;
+    color: #111111;
+    border-bottom: solid 3px #3DC08D;
+    width: fit-content;
+}
+
+.horizontal-display-root .carousel {
+    display: flex;
+    align-items: center;
+}
+
+.horizontal-display-root .icon {
+    font-size: 30pt;
+}
