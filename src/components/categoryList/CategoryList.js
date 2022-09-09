@@ -8,7 +8,7 @@ export default function CategoryList() {
     let categories = [
         "Dairy & Eggs",
         "Fruit",
-        "Vegetables",
+        "Vegetable",
         "Meat & Seafood",
         "Frozen",
         "Bakery",
