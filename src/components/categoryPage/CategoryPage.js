@@ -3,16 +3,18 @@ import './CategoryPage.css'
 import http from '../../services/api.service'
 import { useParams } from 'react-router-dom'
 import CategoryItem from './CategoryItem'
+import HorizontalProductDisplay from '../productDisplays/HorizontalProductDisplay'
 
 export default function CategoryPage() {
 
     const { category } = useParams();
+    // look for a query
     const [products, setProducts] = useState([]);
     const itemsRef = useRef(null);
 
     useEffect(() => {
         itemsRef.current.scrollIntoView({ behavior: 'smooth' })
-    })
+    }, []);
 
     useEffect(() => {
         getProducts()
@@ -32,22 +34,10 @@ export default function CategoryPage() {
         }
     }
 
-
-
     return (
-        <div className='category-root'>
-            <h2>
-                {category}
-            </h2>
-            <div
-                className='products-container'
-                ref={itemsRef} >
-                {products.map(p => (
-                    <CategoryItem key={p.id} {...p} />
-                ))}
-
-            </div>
-        </div >
+        <div className='category-root' ref={itemsRef}>
+            <HorizontalProductDisplay title={category} products={products} />
+        </div>
     )
 }
 

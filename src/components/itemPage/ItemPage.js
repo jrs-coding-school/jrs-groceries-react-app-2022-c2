@@ -4,6 +4,7 @@ import http from '../../services/api.service'
 import { Link, useParams } from 'react-router-dom'
 import LoaderSpin from '../LoaderSpin/LoaderSpin'
 import CategoryItem from '../categoryPage/CategoryItem'
+import FlexProductDisplay from '../productDisplays/FlexProductDisplay'
 
 
 export default function ItemPage() {
@@ -75,15 +76,7 @@ export default function ItemPage() {
                     </div>
 
                 </div>
-                <div className="related-items">
-                    <h2>Items like this:</h2>
-                    <div className="more-products">
-                        {relatedItems.filter(p => p.id !== product.id)
-                            .map(p => (
-                                <CategoryItem className="cat-item" key={p.id} {...p} />
-                            ))}
-                    </div>
-                </div>
+                <FlexProductDisplay title="Items like this" products={relatedItems} />
 
             </div>
         )
