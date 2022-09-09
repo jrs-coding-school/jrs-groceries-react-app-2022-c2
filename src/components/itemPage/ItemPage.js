@@ -3,27 +3,28 @@ import './ItemPage.css'
 import http from '../../services/api.service'
 import { Link, useParams } from 'react-router-dom'
 import LoaderSpin from '../LoaderSpin/LoaderSpin'
-import CategoryPage from '../categoryPage/CategoryPage'
 import CategoryItem from '../categoryPage/CategoryItem'
 
 
 export default function ItemPage() {
 
-    const { productId, category } = useParams()
+    const { productId } = useParams()
     const [product, setProduct] = useState()
     const [relatedItems, setRelatedItems] = useState([])
     console.log(product);
 
     useEffect(() => {
         getProductById()
-    }, [])
+    }, [productId])
 
     function getProductById() {
 
         http.getProductsById(productId)
             .then((response) => {
                 setProduct(response.data)
-                getProductsByCategory(response.data?.category)
+
+                !product && getProductsByCategory(response.data?.category)
+
             })
             .catch(err => {
                 console.error(err)
@@ -31,12 +32,11 @@ export default function ItemPage() {
     }
 
     function getProductsByCategory(category) {
-
+        console.log('getting items');
         http.getProductsByCategory(category)
             .then((response) => {
                 setRelatedItems(response.data);
             });
-
     }
 
     if (product == undefined) {
@@ -82,7 +82,6 @@ export default function ItemPage() {
                             .map(p => (
                                 <CategoryItem className="cat-item" key={p.id} {...p} />
                             ))}
-
                     </div>
                 </div>
 

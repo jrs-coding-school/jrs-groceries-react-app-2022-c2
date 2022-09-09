@@ -51,7 +51,3 @@ export default function CategoryPage() {
     )
 }
 
-function CategoryList({ category }) {
-
-    const [items, setItems] = useState([])
-}
