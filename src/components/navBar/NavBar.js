@@ -1,13 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './NavBar.css'
 import { useBoolean } from '../../hooks/UseBoolean';
 import Modal from '../modal/Modal';
 import Login from '../login/Login';
 import Cart from '../cart/cart/Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleXmark, faHouse, faRightFromBracket, faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faCircleXmark, faHouse, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import UserContext from '../../hooks/UserContext';
 import { Link } from 'react-router-dom';
+import SearchBar from '../searchBar/SearchBar';
 
 
 export default function NavBar() {
@@ -28,7 +29,9 @@ export default function NavBar() {
                             <FontAwesomeIcon icon={faHouse} className='home-button icon'>
                             </FontAwesomeIcon>
                         </Link>
-                        <input type="text" className='search-bar' placeholder='Search for milk, chicken, apples, etc...' />
+                        <div className="nav-search" >
+                            <SearchBar />
+                        </div>
                     </div>
 
                     <div className='right'>
@@ -41,7 +44,7 @@ export default function NavBar() {
                             <div
                                 className={`pick-up ${isMethodDelivery ? '' : 'selected'}`}
                                 onClick={(toggleMethod)}>
-                                Pick Up
+                                Pick&nbsp;Up
                             </div>
                         </div>
                         {activeUser
