@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useBoolean } from '../../hooks/UseBoolean';
 
 
@@ -6,7 +6,7 @@ export default function ShippingForm({ formData, setFormData, onSubmit, onBackCl
 
     const [skipBilling, toggleSkipBilling] = useBoolean(false);
 
-    let addressRef = useRef()
+    let nameRef = useRef()
 
     function handleInputChange(e) {
         let name = e.target.name;
@@ -17,6 +17,11 @@ export default function ShippingForm({ formData, setFormData, onSubmit, onBackCl
             [name]: value
         });
     }
+
+    useEffect(() => {
+        nameRef.current.focus()
+    }, [])
+
 
     function limitInputLength(e, maxLength) {
         let name = e.target.name;
@@ -41,8 +46,19 @@ export default function ShippingForm({ formData, setFormData, onSubmit, onBackCl
                 e.preventDefault();
                 onSubmit && onSubmit(skipBilling)
             }}>
-
-
+            <div className='name'>
+                <label htmlFor='name'>Name:</label>
+                <input
+                    type='text'
+                    name='name'
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    placeholder='John Smith'
+                    ref={nameRef}
+                    id='name'
+                />
+            </div>
             <div className='address'>
                 <label htmlFor='address'>Address:</label>
                 <input
@@ -52,7 +68,6 @@ export default function ShippingForm({ formData, setFormData, onSubmit, onBackCl
                     onChange={handleInputChange}
                     required
                     placeholder='123 Broad St.'
-                    ref={addressRef}
                     id='address'
                 />
             </div>

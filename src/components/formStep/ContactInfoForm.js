@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PhoneInput from '../PhoneInput/PhoneInput';
 
 export default function ContactInfoForm({ formData, setFormData, onSubmit }) {
@@ -6,8 +6,8 @@ export default function ContactInfoForm({ formData, setFormData, onSubmit }) {
     let emailInputRef = useRef()
 
     useEffect(() => {
-        console.log(formData)
-    }, [formData]);
+        emailInputRef.current.focus()
+    }, []);
 
     function handleFormSubmit(e) {
         e.preventDefault();

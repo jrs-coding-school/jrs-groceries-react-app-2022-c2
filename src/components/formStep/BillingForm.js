@@ -1,9 +1,19 @@
-import React, { useRef, useState } from 'react'
-import { useBoolean } from '../../hooks/UseBoolean';
+import React, { useEffect, useRef } from 'react'
+import './BillingForm.css'
 
 export default function BillingForm({ formData, setFormData, onSubmit, onBackClicked }) {
 
     let addressRef = useRef();
+    let cardNumberRef2 = useRef();
+    let cardNumberRef3 = useRef();
+    let cardNumberRef4 = useRef();
+    let expirationMonthRef = useRef();
+    let expirationYearRef = useRef();
+    let cvvRef = useRef();
+
+    useEffect(() => {
+        addressRef.current.focus()
+    }, [])
 
     function handleInputChange(e) {
         let name = e.target.name;
@@ -31,6 +41,47 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
         });
     }
 
+    function handleCardInfoInputChange(e) {
+        // if number is now 3 digits long, focus next input
+        focusNextCardInfoInput(e)
+    }
+
+    function focusNextCardInfoInput(e) {
+        e.target.value += ""; // string type cast
+        // check if input is 3 digits now
+        if (e.target.name == 'cardNumber1') {
+            limitInputLength(e, 4)
+            if (e.target.value.length >= 4) {
+                cardNumberRef2.current.focus();
+            }
+        } else if (e.target.name == 'cardNumber2') {
+            limitInputLength(e, 4)
+            if (e.target.value.length >= 4) {
+                cardNumberRef3.current.focus();
+            }
+        } else if (e.target.name == 'cardNumber3') {
+            limitInputLength(e, 4)
+            if (e.target.value.length >= 4) {
+                cardNumberRef4.current.focus();
+            }
+        } else if (e.target.name == 'cardNumber4') {
+            limitInputLength(e, 4)
+            if (e.target.value.length >= 4) {
+                expirationMonthRef.current.focus();
+            }
+        } else if (e.target.name == 'expirationMonth') {
+            limitInputLength(e, 2)
+            if (e.target.value.length >= 2) {
+                expirationYearRef.current.focus();
+            }
+        } else {
+            limitInputLength(e, 2)
+            if (e.target.value.length >= 2) {
+                cvvRef.current.focus();
+            }
+        }
+    }
+
     return (
         <form
             onSubmit={(e) => {
@@ -39,6 +90,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
             }}
             className='address-root'>
 
+            <h2>Billing Address</h2>
             <div className='address'>
                 <label htmlFor='address'>Address:</label>
                 <input
@@ -138,7 +190,6 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
 
                 </select>
             </div>
-
             <div className='zip-code'>
                 <label htmlFor='zipCode'>Zip Code:</label>
                 <input
@@ -155,6 +206,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                 />
             </div>
             <br />
+            <h2>Card Info</h2>
             <div className='cardholder-name'>
                 <label htmlFor='cardholder-name'>Cardholder Name:</label>
                 <input
@@ -167,39 +219,71 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     id='cardholderName'
                 />
             </div>
+            <p>Card Number</p>
             <div className='card-number'>
-                <label htmlFor='card-number'>Card Number:</label>
                 <input
                     type='number'
-                    name='cardNumber'
-                    value={formData.cardNumber}
-                    onChange={(e) => {
-                        limitInputLength(e, 16)
-                    }}
+                    name='cardNumber1'
+                    value={formData.cardNumber1}
+                    onChange={handleCardInfoInputChange}
                     required
-                    placeholder='0000-0000-0000-0000'
-                    id='cardNumber'
-                    maxLength='16'
-                />
-            </div>
-            <div className=''>
-                <label htmlFor='expiration-date'>Expiration Date:</label>
+                    placeholder='0000'
+                    id='cardNumber1'
+                />-
                 <input
                     type='number'
-                    name='expirationDate'
-                    value={formData.expirationDate}
-                    onChange={(e) => {
-                        limitInputLength(e, 4)
-                    }}
+                    name='cardNumber2'
+                    value={formData.cardNumber2}
+                    onChange={handleCardInfoInputChange}
                     required
-                    placeholder='MM/YY'
-                    id='expirationDate'
-                    maxLength='4'
+                    placeholder='0000'
+                    id='cardNumber2'
+                    ref={cardNumberRef2}
+                />-
+                <input
+                    type='number'
+                    name='cardNumber3'
+                    value={formData.cardNumber3}
+                    onChange={handleCardInfoInputChange}
+                    required
+                    placeholder='0000'
+                    id='cardNumber3'
+                    ref={cardNumberRef3}
+                />-
+                <input
+                    type='number'
+                    name='cardNumber4'
+                    value={formData.cardNumber4}
+                    onChange={handleCardInfoInputChange}
+                    required
+                    placeholder='0000'
+                    id='cardNumber4'
+                    ref={cardNumberRef4}
                 />
             </div>
-            <div className='cvv'>
-                <label htmlFor='cvv'>CVV:</label>
+            <div className='expiration-date'>
                 <input
+                    type='number'
+                    name='expirationMonth'
+                    value={formData.expirationMonth}
+                    onChange={handleCardInfoInputChange}
+                    required
+                    placeholder='MM'
+                    id='expirationMonth'
+                    ref={expirationMonthRef}
+                />/
+                <input
+                    type='number'
+                    name='expirationYear'
+                    value={formData.expirationYear}
+                    onChange={handleCardInfoInputChange}
+                    required
+                    placeholder='YY'
+                    id='expirationYear'
+                    ref={expirationYearRef}
+                />
+                <input
+                    className='cvv'
                     type='number'
                     name='cvv'
                     value={formData.cvv}
@@ -209,7 +293,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     required
                     placeholder='CVV'
                     id='cvv'
-                    maxLength='3'
+                    ref={cvvRef}
                 />
             </div>
 
