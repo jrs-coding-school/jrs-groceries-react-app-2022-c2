@@ -32,6 +32,8 @@ export default function CategoryPage() {
         }
     }
 
+
+
     return (
         <div className='category-root'>
             <h2>
@@ -47,4 +49,9 @@ export default function CategoryPage() {
             </div>
         </div >
     )
+}
+
+function CategoryList({ category }) {
+
+    const [items, setItems] = useState([])
 }

@@ -1,20 +1,26 @@
 .product-container {
     background-color: #c7cfd5;
-    height: 100vh;
+    height: 100%;
     padding: 2rem;
     position: relative;
 }
 
 .product-container .back {
     position: absolute;
-    left: 10px;
+    left: 20px;
     top: 10px;
+    background-color: #47D9A8;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #F2FAFF;
 }
 
 .product-container .product-main {
     display: flex;
     justify-content: space-evenly;
     gap: 10px;
+    margin: 1.5rem;
 }
 
 .product-container .product-actual,
@@ -37,29 +43,29 @@
 }
 
 
-.product-container .product-info {
+.product-container .product-information {
     text-align: left;
     width: 50%;
     padding: 1rem;
 }
 
-.product-container .product-info>div {
-    padding: .5rem;
+.product-information>div {
+    padding: 0.5rem;
     color: #111111;
 }
 
-.product-container .name,
-.product-container .price {
+.product-container .product-name,
+.product-container .product-price {
     font-size: 26pt;
     font-weight: 700;
 }
 
-.product-container .brand {
+.product-container .product-brand {
     font-size: 18pt;
     font-weight: 500;
 }
 
-.product-container .category {
+.product-container .product-category {
     font-size: 14pt;
     font-weight: 400;
     font-style: italic;
@@ -86,18 +92,18 @@
 
 }
 
-.product-container .price {
+.product-container .product-price {
     padding: .5rem;
     margin-top: 1rem;
 }
 
-.product-container .size {
+.product-container .product-size {
     margin-bottom: 2rem;
     font-style: italic;
     font-weight: 400;
 }
 
-.product-container .quantity {
+.product-container .product-quantity {
     margin: 1rem auto;
     width: 3rem;
     height: 3rem;
@@ -109,7 +115,7 @@
     outline: none;
 }
 
-.product-container .add-item {
+.product-container .product-add-item {
     padding: 1rem;
     border-radius: 8px;
     width: 100%;
@@ -121,4 +127,14 @@
 
 .product-container .related-items {
     text-align: left;
+    margin: 0;
+}
+
+.product-container .more-products {
+    display: flex;
+}
+
+.product-container .quantity-prompt {
+    font-style: italic;
+    font-weight: 400;
 }
