@@ -1,5 +1,4 @@
 .item-form-root {
-    text-align: left;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -18,9 +17,9 @@
 }
 
 .item-form-root button {
-    background-color: #3DC08D;
-    color: white;
-
+    background-color: white;
+    color: #3DC08D;
+    border: #3DC08D 1px solid;
     padding: 7px;
     border-radius: 10px;
     margin-right: 3px;
@@ -28,6 +27,6 @@
 }
 
 .item-form-root button:hover {
-    background-color: white;
-    color: #3DC08D;
+    background-color: #3DC08D;
+    color: white;
 }

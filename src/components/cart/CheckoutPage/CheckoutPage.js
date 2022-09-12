@@ -14,9 +14,6 @@ export default function CheckoutPage() {
                     <MultiStepForm />
                 </div>
                 <div className='order-total'>
-                    <h2>
-                        Order Total
-                    </h2>
                     <OrderTotal />
                 </div>
             </div>

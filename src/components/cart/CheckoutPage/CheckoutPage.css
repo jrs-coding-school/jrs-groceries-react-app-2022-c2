@@ -8,6 +8,11 @@
     color: #238e65;
 }
 
+.checkout-page h2 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
 .checkout-page .info-form {
     margin: 10px;
     width: 400px;
@@ -15,6 +20,8 @@
 }
 
 .checkout-page .order-total {
+    width: 200px;
+    height: fit-content;
     padding: 15px;
     margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;

@@ -5,7 +5,6 @@ import './ConfirmCheckout.css'
 
 export default function ConfirmCheckout({ contactFormData, shippingFormData, billingFormData, onBackClicked }) {
 
-
     return (
 
         <div className='confirm-root'>
@@ -33,8 +32,11 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
                 {shippingFormData.city}, {shippingFormData.state}
                 <br />
                 {shippingFormData.zipCode}
-
+                <br />
+                <br />
+                {shippingFormData.deliveryInstructions}
             </ul>
+
             <h2>Billing Info</h2>
             <ul>
                 <h4>Billing Address</h4>
@@ -46,6 +48,7 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
                 {billingFormData.zipCode}
                 <br />
             </ul>
+
             <ul>
                 <h4>Card Info</h4>
                 <li>
@@ -62,6 +65,7 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
                     <b>CVV: </b> {billingFormData.cvv}
                 </li>
             </ul>
+
             <button type='button'
                 onClick={() => {
                     onBackClicked && onBackClicked();
