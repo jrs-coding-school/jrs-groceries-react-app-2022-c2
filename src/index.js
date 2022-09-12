@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './components/homePage/HomePage'
-import NavBar from './components/navBar/NavBar'
 import CategoryPage from './components/categoryPage/CategoryPage'
 import Cart from './components/cart/cart/Cart'
 import CheckoutPage from './components/cart/CheckoutPage/CheckoutPage';

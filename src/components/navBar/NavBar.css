@@ -1,40 +1,33 @@
 .nav-root {
     position: sticky;
     top: 0;
-    width: 100%;
     z-index: 4;
 }
 
-.nav-root .nav-bar {
+.nav-root nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    gap: 2rem;
+    /* min. space between .left and .right boxes */
+    padding: 0.5rem 1rem;
     background: linear-gradient(45deg, #3DC08D, #47D9A8);
     color: #F2FAFF;
-
 }
 
-.nav-root .nav-bar>div {
-    margin: 0 20px;
-}
-
-.nav-root .right {
+nav .left,
+nav .right {
     display: flex;
     align-items: center;
-    gap: 50px;
-    width: 50%;
-
-}
-
-.nav-root .left {
-    display: flex;
     gap: 1rem;
-    align-items: center;
-    width: 50%;
 }
 
-.nav-root .icon {
+nav .left,
+nav .nav-search {
+    flex-grow: 1;
+}
+
+nav .icon {
     color: #3DC08D;
     background-color: #F2FAFF;
     font-size: 20pt;
@@ -43,7 +36,7 @@
     cursor: pointer;
 }
 
-.nav-root .icon:hover {
+nav .icon:hover {
     color: #3DC08D;
     background-color: #F2FAFF;
     box-shadow: 0px 0px 4px 2px #c5cac8 inset;
@@ -55,38 +48,31 @@
 
 .nav-root .cart {
     color: #47D9A8;
-
 }
 
-.nav-root .nav-search {}
-
-
-.nav-root .logout,
-.nav-root .login {
+nav .logout,
+nav .login {
     background-color: #F2FAFF;
     color: #505251;
     padding: 1em;
-    border-radius: 24px;
     font-weight: bold;
     cursor: pointer;
     transition: .3s;
     width: 6rem;
-
+    border-radius: 25px;
 }
 
-.nav-root .active-user {
+nav .active-user {
     font-weight: bold;
     letter-spacing: 1px;
 }
 
-.nav-root .logout:hover,
-.nav-root .login:hover {
+nav .logout:hover,
+nav .login:hover {
 
     box-shadow: 0px 0px 4px 2px #c5cac8 inset;
 
 }
-
-
 
 .nav-root .side-menu {
     border: solid red 2px;
@@ -115,44 +101,46 @@
     top: 2px;
 }
 
-.nav-root .method {
+nav .method {
     display: flex;
     gap: 5px;
     border: white solid 2px;
     border-radius: 6px;
-    margin: .5em 0;
     transition: .3s;
     cursor: pointer;
-
 }
 
-.nav-root .method:hover {
+nav .method:hover {
     background-color: #3DC08D;
     box-shadow: 0px 0px 5px 5px #2d9d72 inset;
-
 }
 
-.nav-root .logged-out {
+nav .logged-out {
     display: flex;
     gap: 20px;
 }
 
-.nav-root .method>div {
-    padding: 1em;
+nav .method>div {
+    padding: 0.5rem 1rem;
 }
 
-.nav-root .method .selected {
+nav .method .selected {
     background-color: #F2FAFF;
     color: #47D9A8;
     transition: .3s;
     font-weight: bold;
 }
 
-
+@media screen and (max-width: 850px) {
+    nav .method {
+        display: none;
+        border: solid red 4px;
+    }
+}
 
 @media screen and (max-width: 550px) {
-    .side-menu {
-        left: unset;
+    .nav-root .side-menu {
         width: 100%;
+
     }
 }

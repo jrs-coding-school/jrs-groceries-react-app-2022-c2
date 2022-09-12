@@ -23,8 +23,9 @@ export default function NavBar() {
     return (
         <>
             <div className='nav-root'>
-                <div className='nav-bar' >
+                <nav className='nav-bar' >
                     <div className='left'>
+                        {/* Home Icon */}
                         <Link to="/">
                             <FontAwesomeIcon icon={faHouse} className='home-button icon'>
                             </FontAwesomeIcon>
@@ -79,7 +80,7 @@ export default function NavBar() {
                             </div>
                         }
                     </div>
-                </div>
+                </nav>
 
                 {isModalOpen && (
                     <Modal toggleModalOpen={toggleModalOpen}>
@@ -100,7 +101,6 @@ export default function NavBar() {
                     <Cart />
                 </div>
             </div>
-
         </>
 
     )
