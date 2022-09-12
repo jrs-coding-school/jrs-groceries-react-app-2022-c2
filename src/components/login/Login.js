@@ -1,21 +1,31 @@
-import React, { useState } from 'react'
+import React from 'react'
+import './Login.css'
 import { useBoolean } from '../../hooks/UseBoolean';
 import LoginForm from './loginForm/LoginForm'
 import SignUpForm from './signUpForm/SignUpForm'
 
-export default function Login({ onLogin }) {
+export default function Login({ onLogin, onSignupSuccessful }) {
 
     const [isLoginShown, toggleIsLoginShown] = useBoolean(true);
 
     return (
-        <div>
-            {
-                isLoginShown
-                    ? <LoginForm onLogin={onLogin} />
-                    : <SignUpForm />
+        <div className='login-root'>
+            {isLoginShown
+                ? <h1>Log In</h1>
+                : <h1>Sign Up</h1>
             }
+            <div className='form'>
+                {
+                    isLoginShown
+                        ? <LoginForm onLogin={onLogin} />
+                        : <SignUpForm onSignupSuccessful={onSignupSuccessful} />
+                }
+            </div>
 
-            <div>
+            <hr />
+
+
+            <div className='switch'>
                 <p>
                     {
                         isLoginShown

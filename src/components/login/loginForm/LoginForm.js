@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import './LoginForm.css'
-import { useNavigate } from 'react-router-dom';
 import http from '../../../services/api.service';
 import UserContext from '../../../hooks/UserContext';
 
@@ -41,7 +40,7 @@ export default function LoginForm({ onLogin }) {
 
         http.login(formData)
             .then(results => {
-                let user = results.data.user;
+                let user = results.data;
                 // navigate('/')
                 // context -> login(user)
                 login && login(user);
@@ -61,11 +60,10 @@ export default function LoginForm({ onLogin }) {
         <form className='login-form'
             onSubmit={handleFormSubmit}>
 
-            <div className='username'>
+            <div className='username input-group'>
                 <label
                     htmlFor='loginEmailInput'>
-                    Email:
-                </label>
+                    Email: </label>
 
                 <input
                     type='email'
@@ -80,7 +78,7 @@ export default function LoginForm({ onLogin }) {
                 />
             </div>
 
-            <div>
+            <div className='input-group'>
                 <label htmlFor='loginPasswordInput'>Password: </label>
                 <input
                     type={isPasswordVisible ? "text" : "password"}
@@ -116,9 +114,11 @@ export default function LoginForm({ onLogin }) {
                 Your email or password was incorrect
             </div>
 
+
+
             {!isLoading
                 ? (
-                    <button
+                    <button className='button-green'
                         disabled={!formData.email || !formData.password}
                         type="submit"
                     >
