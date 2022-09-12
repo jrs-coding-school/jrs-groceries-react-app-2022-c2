@@ -84,10 +84,16 @@ export default function NavBar() {
 
                 {isModalOpen && (
                     <Modal toggleModalOpen={toggleModalOpen}>
-                        <Login onLogin={() => {
-                            // close modal
-                            toggleModalOpen();
-                        }} />
+                        <Login
+                            onLogin={() => {
+                                // close modal
+                                toggleModalOpen();
+                            }}
+                            onSignupSuccessful={() => {
+                                // close modal
+                                toggleModalOpen();
+                            }}
+                        />
                     </Modal>
                 )}
 

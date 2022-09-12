@@ -1,0 +1,31 @@
+.login-root h1 {
+    background: linear-gradient(45deg, #3DC08D, #47D9A8);
+    margin: 0 auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: .7rem;
+    color: #F2FAFF;
+    font-size: 22pt;
+}
+
+.login-root .form,
+.login-root .switch {
+    margin: 2rem;
+}
+
+.login-root hr {
+    margin: 0 1rem;
+    border: 0;
+    height: 1px;
+    background: #111;
+}
+
+.login-root button {
+    cursor: pointer;
+    border-radius: 6px;
+    padding: .5em;
+}
+
+.login-root input:focus {
+    border: 2px solid #3DC08D;
+}

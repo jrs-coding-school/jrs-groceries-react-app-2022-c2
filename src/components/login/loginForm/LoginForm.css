@@ -19,8 +19,36 @@
     font-size: 1rem;
 }
 
-.login-form .loader-spin-root {
+.login-form input {
+    border: none;
+    padding: .5rem;
+    outline: none;
+}
 
+
+.login-form .button-green {
+    background-color: #47D9A8;
+    font-weight: 500;
+    color: #F2FAFF;
+}
+
+.login-form .button-green:disabled {
+    color: #f0e5e5ba;
+}
+
+.login-form .show-password,
+.login-form .checkbox {
+    cursor: pointer;
+}
+
+.login-form label {
+    color: #111111;
+    font-weight: 500;
+
+
+}
+
+.login-form .loader-spin-root {
     display: flex;
 }
 

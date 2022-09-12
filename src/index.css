@@ -21,3 +21,14 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+}
+
+.input-group label {
+  margin: .5em;
+}
