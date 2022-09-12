@@ -1,0 +1,19 @@
+.address-root input,
+.address-root select {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.address-root .checkbox {
+    margin: 10px;
+    display: flex;
+}
+
+.address-root .checkbox label {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.address-root .checkbox input {
+    margin-left: -80px;
+}

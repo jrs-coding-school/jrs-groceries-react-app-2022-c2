@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './ConfirmCheckout.css'
 
 
 export default function ConfirmCheckout({ contactFormData, shippingFormData, billingFormData, onBackClicked }) {
 
-
     return (
 
-        <div>
+        <div className='confirm-root'>
             <h2>Contact Info</h2>
             <ul>
                 <li>
@@ -24,14 +24,19 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
 
             <h2>Shipping Info:</h2>
             <ul>
+                {shippingFormData.name}
+                <br />
                 {shippingFormData.address1}
                 {shippingFormData.address2 || ''}
                 <br />
                 {shippingFormData.city}, {shippingFormData.state}
                 <br />
                 {shippingFormData.zipCode}
-
+                <br />
+                <br />
+                {shippingFormData.deliveryInstructions}
             </ul>
+
             <h2>Billing Info</h2>
             <ul>
                 <h4>Billing Address</h4>
@@ -43,6 +48,7 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
                 {billingFormData.zipCode}
                 <br />
             </ul>
+
             <ul>
                 <h4>Card Info</h4>
                 <li>
@@ -59,6 +65,7 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
                     <b>CVV: </b> {billingFormData.cvv}
                 </li>
             </ul>
+
             <button type='button'
                 onClick={() => {
                     onBackClicked && onBackClicked();
