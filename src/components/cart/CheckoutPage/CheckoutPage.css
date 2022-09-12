@@ -5,7 +5,11 @@
     gap: 2px;
     justify-content: center;
     margin: 20px;
-    color: #238e65;
+    color: #3ebf8d;
+}
+
+body {
+    background-color: #F2FAFF;
 }
 
 .checkout-page h2 {
@@ -17,6 +21,8 @@
     margin: 10px;
     width: 400px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    background-color: #ccdede;
+    border-radius: 15px;
 }
 
 .checkout-page .order-total {
@@ -25,4 +31,6 @@
     padding: 15px;
     margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    background-color: #ccdede;
+    border-radius: 15px;
 }
