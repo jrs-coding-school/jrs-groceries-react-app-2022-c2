@@ -1,5 +1,5 @@
 .modal-root {
-    background-color: rgba(55, 52, 52, 0.3);
+    background-color: #3734344d;
     position: fixed;
     inset: 0;
     display: grid;
@@ -13,12 +13,11 @@
 
 
 .modal-root .modal {
-    background: linear-gradient(45deg, #28313c, #37393f);
-    color: #ffffff;
+    background-color: #c7cfd5;
     width: fit-content;
-    min-width: 70%;
-    border-radius: 4px;
-    padding: 2rem;
+    min-width: 50%;
+    border-radius: 8px;
     position: absolute;
+
 
 }

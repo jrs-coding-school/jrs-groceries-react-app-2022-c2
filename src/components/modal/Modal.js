@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import './modal.css'
 
-export default function Modal({ title, children, toggleModalOpen }) {
+export default function Modal({ children, toggleModalOpen }) {
 
     const backgroundRef = useRef()
 
@@ -14,7 +14,7 @@ export default function Modal({ title, children, toggleModalOpen }) {
     return (
         <div className="modal-root" ref={backgroundRef} onClick={handleBGClicked}>
             <div className="modal">
-                <h2>{title}</h2>
+
                 {children}
             </div>
         </div>

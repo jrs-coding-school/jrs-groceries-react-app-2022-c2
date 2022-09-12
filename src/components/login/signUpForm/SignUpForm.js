@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import http from '../../../services/api.service';
 import './SignUpForm.css'
+import UserContext from '../../../hooks/UserContext';
 
-export default function SignUpForm() {
+export default function SignUpForm({ onSignupSuccessful }) {
+
+    const { login } = useContext(UserContext)
 
     const [formData, setFormData] = useState({
         email: '',
@@ -12,7 +15,7 @@ export default function SignUpForm() {
 
     const [isLoading, setIsLoading] = useState(false)
     const [isPasswordVisible, setisPasswordVisible] = useState(false);
-    const [isEmailTaken, setIsEmailTaken] = useState(true);
+    const [isEmailTaken, setIsEmailTaken] = useState(false);
     const [debounceTimer, setDebounceTimer] = useState(null);
 
     const [wasSignUpFailed, setWasSignUpFailed] = useState(false);
@@ -71,9 +74,11 @@ export default function SignUpForm() {
         http.createUser(formData)
             .then(res => {
                 // do something
-                console.log(res)
-                const user = res.data.user;
+                console.log(res.data)
+                const user = res.data;
 
+                login && login(user)
+                onSignupSuccessful && onSignupSuccessful();
                 // navigate(`/`);
             }).catch(err => {
                 console.error(err);
@@ -87,8 +92,8 @@ export default function SignUpForm() {
         <form className='login-form'
             onSubmit={handleFormSubmit}>
 
-            <div className='email'>
-                <div>Email is {isEmailTaken && 'un'}available</div>
+            <div className='email input-group'>
+
                 <label
                     htmlFor='signUpEmailInput'>
                     Email:
@@ -105,9 +110,11 @@ export default function SignUpForm() {
                     placeholder='email@host.com'
                     id='signUpEmailInput'
                 />
+                {wasSignUpFailed && <div>Email is {isEmailTaken && 'un'}available</div>}
+
             </div>
 
-            <div>
+            <div className='input-group'>
                 <label htmlFor='signUpPasswordInput'>Password: </label>
                 <input
                     type={isPasswordVisible ? "text" : "password"}
@@ -120,7 +127,8 @@ export default function SignUpForm() {
                     id='signUpPasswordInput'
                 />
             </div>
-            <div>
+
+            <div className='input-group'>
                 <label htmlFor='signUpConfirmPasswordInput'>Confirm Password: </label>
                 <input
                     type={isPasswordVisible ? "text" : "password"}
@@ -152,8 +160,8 @@ export default function SignUpForm() {
                 Show&nbsp;Password
             </label>
 
-            <div className={"signup-failed " + (wasSignUpFailed && 'visible')} >
-                Your passwords did not match.
+            <div className={"signup-failed " + (formData.password !== formData.confirmPassword && 'visible')} >
+                Your passwords do not match.
             </div>
 
             {!isLoading
