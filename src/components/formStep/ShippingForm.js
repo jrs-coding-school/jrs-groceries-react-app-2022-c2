@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useBoolean } from '../../hooks/UseBoolean';
+import './ShippingForm.css'
 
 
 export default function ShippingForm({ formData, setFormData, onSubmit, onBackClicked }) {
@@ -157,7 +158,6 @@ export default function ShippingForm({ formData, setFormData, onSubmit, onBackCl
 
                 </select>
             </div>
-
             <div className='zip-code'>
                 <label htmlFor='zipCode'>Zip Code:</label>
                 <input
@@ -173,7 +173,6 @@ export default function ShippingForm({ formData, setFormData, onSubmit, onBackCl
                     maxLength='5'
                 />
             </div>
-
             <div className='delivery-instructions'>
                 <label htmlFor='deliveryInstructions'> Delivery Instructions:</label>
                 <textarea
@@ -186,8 +185,8 @@ export default function ShippingForm({ formData, setFormData, onSubmit, onBackCl
                 />
             </div>
 
-            <label>Use the same shipping info for billing </label>
             <div className='checkbox'>
+                <label>Use same shipping info for billing </label>
                 <input
                     type='checkbox'
                     checked={skipBilling}

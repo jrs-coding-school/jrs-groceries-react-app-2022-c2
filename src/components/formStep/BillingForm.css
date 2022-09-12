@@ -1,13 +1,13 @@
 .card-number {
     display: flex;
-    width: 200px;
+    width: 170px;
     height: 22px;
     margin: 15px;
 }
 
 .expiration-date {
     display: flex;
-    width: 200px;
+    width: 170px;
     height: 22px;
     margin: 15px;
 }
@@ -16,8 +16,19 @@
     margin-left: 50px;
 }
 
+.billing-root .billing-address input,
+.billing-root .billing-address select,
+.billing-root .cardholder-name input {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.billing-root p {
+    color: #3DC08D;
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './ConfirmCheckout.css'
 
 
 export default function ConfirmCheckout({ contactFormData, shippingFormData, billingFormData, onBackClicked }) {
@@ -7,7 +8,7 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
 
     return (
 
-        <div>
+        <div className='confirm-root'>
             <h2>Contact Info</h2>
             <ul>
                 <li>
@@ -24,6 +25,8 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
 
             <h2>Shipping Info:</h2>
             <ul>
+                {shippingFormData.name}
+                <br />
                 {shippingFormData.address1}
                 {shippingFormData.address2 || ''}
                 <br />

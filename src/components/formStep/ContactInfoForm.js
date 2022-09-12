@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import PhoneInput from '../PhoneInput/PhoneInput';
+import './ContactInfoForm.css'
 
 export default function ContactInfoForm({ formData, setFormData, onSubmit }) {
 
