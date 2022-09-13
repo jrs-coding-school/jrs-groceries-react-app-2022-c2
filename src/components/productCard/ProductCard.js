@@ -38,7 +38,7 @@ export default function ProductCard({ name, price, size, image, id }) {
                 </div>
 
                 <div className='product-info'>
-                    <div className='price'>${price}</div>
+                    <div className='price'>${price.toFixed(2)}</div>
                     <div className='name'>{name}</div>
                     <div className='size'>{size}</div>
                 </div>

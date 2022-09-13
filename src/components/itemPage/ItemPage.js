@@ -65,7 +65,7 @@ export default function ItemPage() {
 
                     <div className='product-selection'>
                         <div className="product-data">
-                            <div className="product-price">${product.price}</div>
+                            <div className="product-price">${product.price.toFixed(2)}</div>
                             <div className="product-size">{product.size}</div>
                             <input className="product-quantity" type="number" min="1"></input>
                             <div className="quantity-prompt">Quantity</div>
