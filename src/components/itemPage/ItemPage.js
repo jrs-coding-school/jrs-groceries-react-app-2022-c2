@@ -20,7 +20,7 @@ export default function ItemPage() {
 
     function getProductById() {
 
-        http.getProductsById(productId)
+        http.getProductById(productId)
             .then((response) => {
                 setProduct(response.data)
 
@@ -45,7 +45,7 @@ export default function ItemPage() {
     } else {
         return (
             <div className="product-container">
-                <Link className="back" to="/">Back</Link>
+                <Link className="back hover" to="/">Back</Link>
 
                 <div className="product-main">
                     <div className="product-actual">
@@ -71,7 +71,7 @@ export default function ItemPage() {
                             <div className="quantity-prompt">Quantity</div>
                         </div>
 
-                        <button className='product-add-item'>+ Add to Cart</button>
+                        <button className='product-add-item hover'>+ Add to Cart</button>
 
                     </div>
 
