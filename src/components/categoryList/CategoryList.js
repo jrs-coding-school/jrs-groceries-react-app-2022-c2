@@ -8,7 +8,7 @@ export default function CategoryList() {
     let categories = [
         "Dairy & Eggs",
         "Fruit",
-        "Vegetable",
+        "Vegetables",
         "Meat & Seafood",
         "Frozen",
         "Bakery",
@@ -25,9 +25,9 @@ export default function CategoryList() {
     ]
 
     return (
-        <div className='cat-container flex'>
+        <div className='category-container grid'>
             {categories.map(category => (
-                <Link className="cat-card" to={`/home/${category}`} key={category} >
+                <Link className="category-card" to={`/home/${category}`} key={category} >
                     <CategoryCard category={category} />
                 </Link>
             ))}

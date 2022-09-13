@@ -1,9 +1,9 @@
-.cat-container {
+.category-container {
     margin: 1rem;
     padding: 1rem;
 }
 
-.cat-container .cat-card {
+.category-container .category-card {
     text-decoration: none;
     background-color: #3DC08D;
     padding: 3rem;
@@ -19,7 +19,7 @@
     transition: 1s;
 }
 
-.cat-container .cat-card:hover {
+.category-container .category-card:hover {
     color: #F2FAFF;
     background-color: #3dc08d;
     box-shadow: 0 0 20px 2px #3f856b inset;
@@ -27,7 +27,7 @@
 
 }
 
-.flex {
+.category-container.grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     overflow-x: scroll;
