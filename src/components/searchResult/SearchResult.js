@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import './SearchResult.css'
 import http from '../../services/api.service'
 import { useParams } from 'react-router-dom';
-import CategoryItem from '../categoryPage/CategoryItem';
-import HorizontalProductDisplay from '../productDisplays/HorizontalProductDisplay';
 import FlexProductDisplay from '../productDisplays/FlexProductDisplay';
 
 export default function SearchResult() {

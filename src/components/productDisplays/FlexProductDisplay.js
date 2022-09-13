@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from './ProductCard'
+import ProductCard from '../productCard/ProductCard'
 import './FlexProductDisplay.css'
 
 export default function FlexProductDisplay({ title, products }) {

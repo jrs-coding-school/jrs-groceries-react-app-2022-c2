@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { addToCart } from '../../services/api.service'
 import UserContext from '../../hooks/UserContext.js'
 import http from '../../services/api.service.js'
+import './ProductCard.css'
 
 export default function ProductCard({ name, price, size, image, id }) {
 

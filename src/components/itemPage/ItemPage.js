@@ -3,7 +3,7 @@ import './ItemPage.css'
 import http from '../../services/api.service'
 import { Link, useParams } from 'react-router-dom'
 import LoaderSpin from '../LoaderSpin/LoaderSpin'
-import CategoryItem from '../categoryPage/CategoryItem'
+import ProductCard from '../productCard/ProductCard'
 import FlexProductDisplay from '../productDisplays/FlexProductDisplay'
 
 
