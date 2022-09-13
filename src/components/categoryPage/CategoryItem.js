@@ -25,8 +25,5 @@ export default function CategoryItem({ name, price, size, image, id }) {
 
             <button className='add-item'>+ Add to Cart</button>
         </div>
-
-
-
     )
 }
