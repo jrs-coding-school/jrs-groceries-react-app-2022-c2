@@ -8,10 +8,10 @@
     max-width: 100%;
     overflow-x: hidden;
     justify-content: center;
-
+    position: relative;
 }
 
-.homepage-root .centered {
+.homepage-root .image-container .centered {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -19,5 +19,4 @@
     color: #F2FAFF;
     font-size: 50pt;
     font-weight: bold;
-
 }

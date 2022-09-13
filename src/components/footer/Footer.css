@@ -1,0 +1,14 @@
+.footer-root {
+    text-align: center;
+    border: solid 1px black;
+    background-color: #ccdede;
+    bottom: 0;
+    position: absolute;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.footer-root .flex-container {
+    display: flex;
+    justify-content: space-between;
+}

@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import NavBar from './components/navBar/NavBar';
 import UserContext from './hooks/UserContext';
 import { useLocalStorage } from './hooks/useLocalStorage';
+import Footer from './components/footer/Footer';
 
 function App() {
 
@@ -19,9 +20,11 @@ function App() {
     <UserContext.Provider value={{ activeUser, login, logout }}>
 
       <div className="App">
-        <NavBar />
-
-        <Outlet />
+        <main>
+          <NavBar />
+          <Outlet />
+        </main>
+        <Footer />
       </div>
     </UserContext.Provider>
   );
