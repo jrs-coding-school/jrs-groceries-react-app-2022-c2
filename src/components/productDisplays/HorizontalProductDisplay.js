@@ -11,17 +11,13 @@ export default function HorizontalProductDisplay({ title, products }) {
                 {title}:
             </h2>
             <div className='carousel'>
-                {/* <div className='icon left'>
-                    <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
-                </div> */}
+
                 <div className='products-container'>
                     {products.map(p => (
                         <ProductCard key={p.id} {...p} />
                     ))}
                 </div>
-                {/* <div className='icon right'>
-                    <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
-                </div> */}
+
             </div>
         </div >
     )

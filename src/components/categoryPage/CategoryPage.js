@@ -1,24 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './CategoryPage.css'
 import http from '../../services/api.service'
-import { useParams } from 'react-router-dom'
-import CategoryItem from './CategoryItem'
-import HorizontalProductDisplay from '../productDisplays/HorizontalProductDisplay'
+import { useLocation, useParams } from 'react-router-dom'
+import FlexProductDisplay from '../productDisplays/FlexProductDisplay';
 
 export default function CategoryPage() {
 
     const { category } = useParams();
     // look for a query
     const [products, setProducts] = useState([]);
-    const itemsRef = useRef(null);
-
-    useEffect(() => {
-        itemsRef.current.scrollIntoView({ behavior: 'smooth' })
-    }, []);
 
     useEffect(() => {
         getProducts()
     }, [category])
+
+    var location = useLocation();
+    const autoScrollRef = useRef(null);
+
+    useEffect(() => {
+        // 'snap to' some element
+        if (location.pathname.includes('/home/')) {
+            console.log("on the 'categories' page")
+            autoScrollRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+        }
+    }, [location])
 
     function getProducts() {
         if (category) {
@@ -35,8 +40,9 @@ export default function CategoryPage() {
     }
 
     return (
-        <div className='category-root' ref={itemsRef}>
-            <HorizontalProductDisplay title={category} products={products} />
+        <div className='category-root'>
+            <div ref={autoScrollRef}></div>
+            <FlexProductDisplay title={category || 'All Products'} products={products} />
         </div>
     )
 }

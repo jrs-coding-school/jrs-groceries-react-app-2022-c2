@@ -19,6 +19,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="" element={<HomePage />}>
+            <Route path="" element={<CategoryPage />} />
             <Route path="/home/:category" element={<CategoryPage />} />
             <Route path="/home/search/:searchParam" element={<SearchResult />} />
           </Route>

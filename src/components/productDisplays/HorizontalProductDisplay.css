@@ -14,7 +14,7 @@
 
 /* item cards when being flexed */
 .horizontal-display-root .products-container>* {
-    /* flex: 1 1; */
+    flex: 1 1;
 }
 
 .horizontal-display-root h2 {

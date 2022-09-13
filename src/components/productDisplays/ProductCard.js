@@ -28,7 +28,6 @@ export default function ProductCard({ name, price, size, image, id }) {
             });
     }
 
-
     return (
         <div className='product-card'>
 

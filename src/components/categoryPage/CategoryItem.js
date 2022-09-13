@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import http from '../../services/api.service'
-import { useParams } from 'react-router-dom'
 import './CategoryItem.css'
 
 
