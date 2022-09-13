@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function ProductCard({ name, price, size, image, id }) {
+
     return (
         <div className='product-card'>
 

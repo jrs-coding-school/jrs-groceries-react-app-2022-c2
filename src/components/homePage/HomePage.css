@@ -19,5 +19,8 @@
     color: #F2FAFF;
     font-size: 50pt;
     font-weight: bold;
+    text-align: center;
 
 }
+
+@media screen and (max-width:550px) {}
