@@ -6,6 +6,10 @@ div.rounded {
     border-top: 3px solid #bbb;
 }
 
-.order-total-root .money {
+.order-total-root {
     color: black;
+}
+
+.order-total-root h3 {
+    color: #3fbe8c;
 }

@@ -1,0 +1,13 @@
+.App {
+    position: relative;
+    min-height: 100vh;
+    --footer-height: 5rem;
+}
+
+main {
+    padding-bottom: calc(var(--footer-height) + 1.5rem);
+}
+
+footer {
+    height: var(--footer-height);
+}

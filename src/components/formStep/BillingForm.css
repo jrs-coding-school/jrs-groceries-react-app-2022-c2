@@ -30,5 +30,6 @@ input::-webkit-inner-spin-button {
 }
 
 .billing-root p {
-    color: #3DC08D;
+    color: black;
+    font-size: 10pt;
 }

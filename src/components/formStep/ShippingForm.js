@@ -47,6 +47,7 @@ export default function ShippingForm({ formData, setFormData, onSubmit, onBackCl
                 e.preventDefault();
                 onSubmit && onSubmit(skipBilling)
             }}>
+            <h2>Shipping Address</h2>
             <div className='name'>
                 <label htmlFor='name'>Name:</label>
                 <input

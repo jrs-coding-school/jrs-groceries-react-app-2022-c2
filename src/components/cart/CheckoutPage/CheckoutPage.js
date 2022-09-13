@@ -8,9 +8,6 @@ export default function CheckoutPage() {
         <div>
             <div className='checkout-page'>
                 <div className='info-form'>
-                    <h2>
-                        Customer Information
-                    </h2>
                     <MultiStepForm />
                 </div>
                 <div className='order-total'>

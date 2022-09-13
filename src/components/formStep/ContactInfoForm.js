@@ -30,6 +30,7 @@ export default function ContactInfoForm({ formData, setFormData, onSubmit }) {
         <form
             onSubmit={handleFormSubmit}
             className='contact-info-root' >
+            <h2>Contact Info</h2>
             <div className='email'>
                 <label htmlFor='email'>E-mail:</label>
                 <input
