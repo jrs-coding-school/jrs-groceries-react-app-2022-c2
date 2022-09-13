@@ -25,9 +25,9 @@ export default function CategoryList() {
     ]
 
     return (
-        <div className='category-container grid'>
+        <div className='category-container'>
             {categories.map(category => (
-                <Link className="category-card" to={`/home/${category}`} key={category} >
+                <Link to={`/home/${category}`} key={category} >
                     <CategoryCard category={category} />
                 </Link>
             ))}
