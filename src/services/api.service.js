@@ -53,7 +53,15 @@ function deleteUserById(userId) {
     return axios.delete(`${BASE_URL}/users/${userId}`);
 }
 
-
+function addToCart(activeUser, id, price) {
+    console.log(activeUser, id, price)
+    return axios.post(`${BASE_URL}/cartItems`, {
+        customerId: activeUser,
+        productId: id,
+        quantity: 1,
+        total: price
+    });
+}
 
 export default {
     getAllUsers,
@@ -67,5 +75,6 @@ export default {
     getProductsByCategory,
     getFeaturedProducts,
     getProductsById,
-    searchProducts
+    searchProducts,
+    addToCart
 }
