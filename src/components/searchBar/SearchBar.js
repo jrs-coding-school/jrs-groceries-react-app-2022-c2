@@ -21,7 +21,7 @@ export default function SearchBar() {
                     setSearchParam(e.target.value)
                 }}
                 className='search-bar'
-                placeholder='Search for milk, chicken, apples, etc...' />
+                placeholder='Search for chicken, fruit, Nestle, etc...' />
         </form>
 
     )
