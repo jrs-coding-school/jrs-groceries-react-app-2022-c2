@@ -1,7 +1,7 @@
 .confirm-root h2 {
-    color: black;
+    color: var(--primary-black);
 }
 
 .confirm-root {
-    color: gray;
+    color: var(--secondary-grey);
 }

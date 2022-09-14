@@ -1,5 +1,5 @@
 .search-root .search-bar {
-    color: #505251;
+    color: var(--secondary-grey);
     width: 100%;
     box-sizing: border-box;
     padding: 1em;
@@ -12,6 +12,6 @@
 
 .search-root .search-bar:focus {
     outline: none;
-    border: #289c6f 3px solid;
+    border: var(--tertiary-green) 3px solid;
     border-radius: 4px;
 }

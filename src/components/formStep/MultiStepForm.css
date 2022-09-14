@@ -8,7 +8,7 @@
 
 .item-form-root label {
     display: block;
-    color: black;
+    color: var(--primary-black);
     font-size: 10pt;
 }
 
@@ -18,16 +18,17 @@
 }
 
 .item-form-root button {
-    background-color: #f1fafe;
-    color: #3ebf8d;
-    border: #3ebf8d 1px solid;
+    background-color: var(--primary-white);
+    color: var(--primary-green);
+    border: var(--primary-green) 1px solid;
     padding: 7px;
     border-radius: 10px;
     margin-right: 3px;
     font-weight: 700;
+    transition: .3s;
 }
 
 .item-form-root button:hover {
-    background-color: #3ebf8d;
-    color: #f1fafe;
+    background-color: var(--primary-green);
+    color: var(--primary-white);
 }

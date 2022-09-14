@@ -1,5 +1,5 @@
 .homepage-root {
-    background-color: #c7cfd5;
+    background-color: var(--primary-grey);
     width: 100%;
 }
 
@@ -16,7 +16,7 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #F2FAFF;
+    color: var(--primary-white);
     font-size: 50pt;
     font-weight: bold;
     text-align: center;

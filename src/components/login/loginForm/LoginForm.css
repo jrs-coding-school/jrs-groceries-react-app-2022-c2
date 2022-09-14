@@ -3,7 +3,7 @@
 }
 
 .login-form .login-failed {
-    color: rgb(255, 45, 45);
+    color: var(--red);
     font-size: 0.8rem;
     opacity: 0;
     cursor: default;
@@ -27,9 +27,9 @@
 
 
 .login-form .button-green {
-    background-color: #47D9A8;
+    background-color: var(--primary-green);
     font-weight: 500;
-    color: #F2FAFF;
+    color: var(--primary-white);
 }
 
 .login-form .button-green:disabled {
@@ -42,34 +42,11 @@
 }
 
 .login-form label {
-    color: #111111;
+    color: var(--primary-black);
     font-weight: 500;
-
-
 }
 
 .login-form .loader-spin-root {
     display: flex;
     background-color: inherit;
-}
-
-.login-form .loader-spin-root .circle {
-    background: transparent;
-    width: 2rem;
-    aspect-ratio: 1;
-    margin: 0 auto;
-    border-radius: 50%;
-    border: solid rgba(241, 237, 237, 0.585) 5px;
-    border-bottom: 5px solid rgb(255, 255, 255);
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg)
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
 }

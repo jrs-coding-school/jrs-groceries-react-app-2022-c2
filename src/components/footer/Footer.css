@@ -1,7 +1,7 @@
 .footer-root {
     text-align: center;
-    border: solid 1px black;
-    background-color: #ccdede;
+    border-top: solid 1px var(--primary-black);
+    background-color: var(--secondary-white);
     bottom: 0;
     position: absolute;
     width: 100vw;

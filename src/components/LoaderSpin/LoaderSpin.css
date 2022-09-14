@@ -11,8 +11,8 @@
     aspect-ratio: 1;
     margin: 0 auto;
     border-radius: 50%;
-    border: solid rgba(241, 237, 237, 0.585) 5px;
-    border-bottom: 5px solid rgb(255, 255, 255);
+    border: solid var(--primary-grey) 5px;
+    border-bottom: 5px solid var(--primary-white);
     animation: spin 2s linear infinite;
 }
 

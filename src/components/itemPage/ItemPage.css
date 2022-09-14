@@ -1,5 +1,5 @@
 .product-container {
-    background-color: #c7cfd5;
+    background-color: var(--primary-grey);
     height: 100%;
     padding: 2rem;
     position: relative;
@@ -9,11 +9,11 @@
     position: absolute;
     left: 20px;
     top: 10px;
-    background-color: #47D9A8;
+    background-color: var(--primary-green);
     padding: 1rem;
     border-radius: 8px;
     font-weight: 600;
-    color: #F2FAFF;
+    color: var(--primary-white);
     transition: 0.3s;
 }
 
@@ -35,12 +35,12 @@
     display: flex;
     width: 70%;
 
-    background-color: #d9fff64d;
+    background-color: var(--tertiary-grey);
     box-shadow: 0 8px 32px 0 #a9bdb5a0;
     backdrop-filter: blur(7.5px);
     -webkit-backdrop-filter: blur(7.5px);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid #ffffff2e;
 }
 
 .product-container .product-information {
@@ -51,7 +51,7 @@
 
 .product-information>div {
     padding: 0.5rem;
-    color: #111111;
+    color: var(--primary-black);
 }
 
 .product-container .product-name,
@@ -78,10 +78,10 @@
 }
 
 .product-container .product-data {
-    background: linear-gradient(45deg, #3DC08D, #47D9A8);
+    background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
     padding: 1rem;
     margin-bottom: 1.5rem;
-    color: #F2FAFF;
+    color: var(--primary-white);
 
 
     box-shadow: 0 8px 32px 0 #a9bdb5a0;
@@ -119,8 +119,8 @@
     padding: 1rem;
     border-radius: 8px;
     width: 100%;
-    background: linear-gradient(45deg, #3DC08D, #47D9A8);
-    color: #F2FAFF;
+    background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
+    color: var(--primary-white);
     font-weight: 700;
     font-size: 16pt;
     cursor: pointer;
@@ -130,11 +130,11 @@
 .product-container .related-items {
     text-align: left;
     margin: 0;
-    color: #111111;
+    color: var(--primary-black);
 }
 
 .product-container h2 {
-    border-bottom: #47D9A8 3px solid;
+    border-bottom: var(--primary-green) 3px solid;
     width: fit-content;
     padding: .25em;
     font-size: 20pt;
@@ -148,10 +148,4 @@
 .product-container .quantity-prompt {
     font-style: italic;
     font-weight: 400;
-}
-
-.product-container .hover:hover {
-    color: #F2FAFF;
-    background-color: #3dc08d;
-    box-shadow: 0px 0px 3px 4px #3f856b inset;
 }
