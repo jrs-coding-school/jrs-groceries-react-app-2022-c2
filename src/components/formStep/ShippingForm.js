@@ -194,17 +194,21 @@ export default function ShippingForm({ formData, setFormData, onSubmit, onBackCl
                     onChange={toggleSkipBilling}
                 />
             </div>
+            <hr />
+            <div className='btn-container'>
+                <button type='button'
+                    className='left-btn'
+                    onClick={() => {
+                        onBackClicked && onBackClicked();
+                    }}>
+                    &#8592; Back To Shipping Info
+                </button>
 
-            <button type='button'
-                onClick={() => {
-                    onBackClicked && onBackClicked();
-                }}>
-                Back To Shipping Info
-            </button>
-
-            <button type='submit'>
-                Go To Billing Info
-            </button>
+                <button type='submit'
+                    className='right-btn'>
+                    Go To Billing Info &#8594;
+                </button>
+            </div>
         </form>
     )
 }

@@ -4,14 +4,12 @@ import ConfirmCheckout from './ConfirmCheckout'
 import ContactInfoForm from './ContactInfoForm'
 import ShippingForm from './ShippingForm'
 import './MultiStepForm.css'
-import CheckoutSuccess from './CheckoutSuccess'
 
 export default function MultiStepForm() {
 
     const [contactFormData, setContactFormData] = useState({
         email: '',
-        firstName: '',
-        lastName: '',
+        name: '',
         phoneNumber: '',
     })
     const [shippingFormData, setShippingFormData] = useState({
@@ -37,7 +35,6 @@ export default function MultiStepForm() {
         expirationYear: '',
         cvv: ''
     })
-    const [formData, setFormData] = useState()
 
     const [currentStep, setCurrentStep] = useState(0);
 
@@ -77,7 +74,6 @@ export default function MultiStepForm() {
         <ConfirmCheckout contactFormData={contactFormData}
             shippingFormData={shippingFormData}
             billingFormData={billingFormData}
-            setFormData={setFormData}
             onBackClicked={prevStep}
             onSubmit={() => {
                 nextStep()

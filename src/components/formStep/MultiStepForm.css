@@ -3,7 +3,9 @@
     flex-direction: column;
     gap: 1rem;
     padding: 15px;
+    padding-bottom: 45px;
     max-width: 400px;
+    position: relative;
 }
 
 .item-form-root label {
@@ -25,6 +27,23 @@
     border-radius: 10px;
     margin-right: 3px;
     font-weight: 700;
+
+}
+
+
+.item-form-root .btn-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+}
+
+.right-btn {
+    float: right;
+}
+
+.left-btn {
+    float: left;
 }
 
 .item-form-root button:hover {

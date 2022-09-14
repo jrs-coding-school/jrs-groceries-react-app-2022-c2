@@ -1,7 +1,12 @@
 .confirm-root h2 {
-    color: black;
+    color: #4f5251;
 }
 
 .confirm-root {
-    color: gray;
+    color: black;
+}
+
+.confirmation-container {
+    border: #3dc08d double 5px;
+    border-radius: 20px;
 }

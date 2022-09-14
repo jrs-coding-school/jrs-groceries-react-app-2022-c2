@@ -298,17 +298,21 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     ref={cvvRef}
                 />
             </div>
+            <hr />
+            <div className='btn-container'>
+                <button type='button'
+                    className='left-btn'
+                    onClick={() => {
+                        onBackClicked && onBackClicked();
+                    }}>
+                    &#8592; Back To Shipping Info
+                </button>
 
-            <button type='button'
-                onClick={() => {
-                    onBackClicked && onBackClicked();
-                }}>
-                Back To Shipping Info
-            </button>
-
-            <button type='submit'>
-                Submit
-            </button>
+                <button type='submit'
+                    className='right-btn'>
+                    Submit &#8594;
+                </button>
+            </div>
         </form>
     )
 }

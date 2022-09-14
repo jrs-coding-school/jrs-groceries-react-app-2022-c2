@@ -9,21 +9,21 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
 
         <div className='confirm-root'>
             <h2>Contact Info</h2>
-            <ul>
+            <ul className='confirmation-container'>
                 <li>
                     <b>E-Mail: </b>
                     {contactFormData.email}
                 </li>
                 <li>
-                    <b>Name: </b> {contactFormData.firstName + ' ' + contactFormData.lastName}
+                    <b>Name: </b> {contactFormData.name}
                 </li>
                 <li>
                     <b>Phone Number: </b> {contactFormData.phoneNumber}
                 </li>
             </ul>
 
-            <h2>Shipping Info:</h2>
-            <ul>
+            <h2>Shipping Info</h2>
+            <ul className='confirmation-container'>
                 {shippingFormData.name}
                 <br />
                 {shippingFormData.address1}
@@ -38,8 +38,8 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
             </ul>
 
             <h2>Billing Info</h2>
-            <ul>
-                <h4>Billing Address</h4>
+            <h4>Billing Address</h4>
+            <ul className='confirmation-container'>
                 {billingFormData.address1}
                 {billingFormData.address2 || ''}
                 <br />
@@ -49,8 +49,8 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
                 <br />
             </ul>
 
-            <ul>
-                <h4>Card Info</h4>
+            <h4>Card Info</h4>
+            <ul className='confirmation-container'>
                 <li>
                     <b>Cardholder Name: </b> {billingFormData.cardholderName}
                 </li>
@@ -66,16 +66,19 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
                 </li>
             </ul>
 
-            <button type='button'
-                onClick={() => {
-                    onBackClicked && onBackClicked();
-                }}>
-                Back To billing Info
-            </button>
+            <div className='btn-container'>
+                <button type='button'
+                    className='left-btn'
+                    onClick={() => {
+                        onBackClicked && onBackClicked();
+                    }}>
+                    &#8592; Back To billing Info
+                </button>
 
-            <Link to='/checkout/success'>
-                <button>Confirm checkout</button>
-            </Link>
+                <Link to='/checkout/success'>
+                    <button className='right-btn' type='submit'>Confirm checkout</button>
+                </Link>
+            </div>
 
         </div>
     )
