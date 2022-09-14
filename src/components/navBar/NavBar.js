@@ -9,7 +9,7 @@ import { faCircleXmark, faHouse, faCartShopping } from '@fortawesome/free-solid-
 import UserContext from '../../hooks/UserContext';
 import { Link } from 'react-router-dom';
 import SearchBar from '../searchBar/SearchBar';
-import CartPreview from '../cart/cart/cartPreview/CartPreview';
+
 
 
 export default function NavBar() {
@@ -98,7 +98,7 @@ export default function NavBar() {
                         onClick={(toggleIsShoppingCartOpen)}>
 
                     </FontAwesomeIcon>
-                    <CartPreview />
+                    <Cart />
                 </div>
             </div>
         </>
