@@ -98,7 +98,7 @@ export default function NavBar() {
                         onClick={(toggleIsShoppingCartOpen)}>
 
                     </FontAwesomeIcon>
-                    {isShoppingCartOpen && <CartPreview />}
+                    <CartPreview />
                 </div>
             </div>
         </>

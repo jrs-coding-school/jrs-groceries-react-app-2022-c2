@@ -1,16 +1,16 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { addToCart } from '../../services/api.service'
+import { CartContext } from '../../App.js'
 import UserContext from '../../hooks/UserContext.js'
 import http from '../../services/api.service.js'
 import './ProductCard.css'
 
-export default function ProductCard({ name, price, size, image, id }) {
+export default function ProductCard({ name, price, size, image, id, category, brand, description }) {
 
     // user comes from 'UserContext'
     const { activeUser } = useContext(UserContext)
+    const { addToCart } = useContext(CartContext)
     // const [setItemAdded, setWasItemAdded] = useState(false)
-    const { addToCart } = useState(true)
 
     function handleAddToCartClicked() {
         console.log('adding to cart');
@@ -18,8 +18,7 @@ export default function ProductCard({ name, price, size, image, id }) {
         // send the item id, user id, quantity (1), and price as parameters
         http.addToCart(activeUser.id, id, price)
             .then(results => {
-                let cartItems = results.data.cartItems;
-                addToCart && addToCart(cartItems);
+                addToCart({ id, price, size, name, image, category, description, brand, quantity: 1, total: price })
             }).catch(err => {
                 console.error(err);
                 // setWasItemAdded(false);
