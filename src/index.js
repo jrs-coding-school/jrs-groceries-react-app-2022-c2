@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Switch } from 'react-router-dom';
 import HomePage from './components/homePage/HomePage'
 import CategoryPage from './components/categoryPage/CategoryPage'
 import Cart from './components/cart/cart/Cart'
@@ -11,12 +11,14 @@ import CheckoutPage from './components/cart/CheckoutPage/CheckoutPage';
 import ItemPage from './components/itemPage/ItemPage';
 import CheckoutSuccess from './components/formStep/CheckoutSuccess';
 import SearchResult from './components/searchResult/SearchResult';
+import NotFoundPage from './components/notFoundPage/NotFoundPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
+
         <Route path="/" element={<App />}>
           <Route path="" element={<HomePage />}>
             <Route path="" element={<CategoryPage />} />
@@ -26,12 +28,12 @@ root.render(
           <Route path="/products" element={<CategoryPage />} />
           <Route path="/products/category/:category" element={<CategoryPage />} />
           <Route path="/products/item/:productId" element={<ItemPage />} />
-
           <Route path="/cart" element={<Cart />} />
-
           <Route path='/checkout' element={<CheckoutPage />} />
           <Route path='/checkout/success' element={<CheckoutSuccess />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode >

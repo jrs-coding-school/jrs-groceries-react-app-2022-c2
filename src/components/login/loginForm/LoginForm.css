@@ -1,5 +1,11 @@
+.login-form {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
 .login-form>div {
-    padding: 1em;
+    padding: 0.5em;
 }
 
 .login-form .login-failed {
@@ -20,16 +26,22 @@
 }
 
 .login-form input {
-    border: none;
     padding: .5rem;
     outline: none;
+
 }
 
+.login-form .show-password {
+    display: inline-block;
+
+}
 
 .login-form .button-green {
     background-color: var(--primary-green);
     font-weight: 500;
     color: var(--primary-white);
+    display: inline-block;
+    text-align: center;
 }
 
 .login-form .button-green:disabled {

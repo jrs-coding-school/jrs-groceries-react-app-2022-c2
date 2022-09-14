@@ -90,21 +90,24 @@ export default function LoginForm({ onLogin }) {
 
             <br />
 
-            <input
-                type="checkbox"
-                checked={isPasswordVisible}
-                onChange={(e) => {
-                    setisPasswordVisible(e.target.checked);
-                }}
+            <div className='password-visible'>
 
-                className="password-visible"
-                id="loginPasswordVisibleInput"
-            />
-            <label
-                className="show-password"
-                htmlFor="loginPasswordVisibleInput">
-                Show&nbsp;Password
-            </label>
+                <input
+                    type="checkbox"
+                    checked={isPasswordVisible}
+                    onChange={(e) => {
+                        setisPasswordVisible(e.target.checked);
+                    }}
+
+
+                    id="loginPasswordVisibleInput"
+                />
+                <label
+                    className="show-password"
+                    htmlFor="loginPasswordVisibleInput">
+                    Show&nbsp;Password
+                </label>
+            </div>
 
             <div className={"login-failed " + (wasLoginFailed && 'visible')} >
                 Your email or password was incorrect
