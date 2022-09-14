@@ -5,7 +5,7 @@ export default function CategoryCard({ category }) {
 
 
     return (
-        <div className='category'>
+        <div className='category-card'>
             {category}
         </div>
     )

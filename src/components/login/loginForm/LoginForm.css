@@ -50,11 +50,12 @@
 
 .login-form .loader-spin-root {
     display: flex;
+    background-color: inherit;
 }
 
 .login-form .loader-spin-root .circle {
     background: transparent;
-    width: .5rem;
+    width: 2rem;
     aspect-ratio: 1;
     margin: 0 auto;
     border-radius: 50%;

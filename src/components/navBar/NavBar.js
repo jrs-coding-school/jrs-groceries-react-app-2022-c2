@@ -64,13 +64,6 @@ export default function NavBar() {
                             )
                             :
                             <div className="logged-out">
-                                <button
-                                    className='cart icon'
-                                    onClick={(toggleShoppingCart)}>
-                                    <FontAwesomeIcon
-                                        icon={faCartShopping}>
-                                    </FontAwesomeIcon>
-                                </button>
 
                                 <button
                                     onClick={toggleModalOpen}

@@ -3,7 +3,7 @@ import './ItemPage.css'
 import http from '../../services/api.service'
 import { Link, useParams } from 'react-router-dom'
 import LoaderSpin from '../LoaderSpin/LoaderSpin'
-import CategoryItem from '../categoryPage/CategoryItem'
+import ProductCard from '../productCard/ProductCard'
 import FlexProductDisplay from '../productDisplays/FlexProductDisplay'
 
 
@@ -20,7 +20,7 @@ export default function ItemPage() {
 
     function getProductById() {
 
-        http.getProductsById(productId)
+        http.getProductById(productId)
             .then((response) => {
                 setProduct(response.data)
 
@@ -45,7 +45,7 @@ export default function ItemPage() {
     } else {
         return (
             <div className="product-container">
-                <Link className="back" to="/">Back</Link>
+                <Link className="back hover" to="/">Back</Link>
 
                 <div className="product-main">
                     <div className="product-actual">
@@ -65,13 +65,13 @@ export default function ItemPage() {
 
                     <div className='product-selection'>
                         <div className="product-data">
-                            <div className="product-price">${product.price}</div>
+                            <div className="product-price">${product.price.toFixed(2)}</div>
                             <div className="product-size">{product.size}</div>
                             <input className="product-quantity" type="number" min="1"></input>
                             <div className="quantity-prompt">Quantity</div>
                         </div>
 
-                        <button className='product-add-item'>+ Add to Cart</button>
+                        <button className='product-add-item hover'>+ Add to Cart</button>
 
                     </div>
 

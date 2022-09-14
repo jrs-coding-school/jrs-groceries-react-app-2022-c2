@@ -14,7 +14,7 @@ function getFeaturedProducts() {
     return axios.get(`${BASE_URL}/products/featured`)
 }
 
-function getProductsById(productId) {
+function getProductById(productId) {
     return axios.get(`${BASE_URL}/products/${productId}`)
 }
 
@@ -74,7 +74,7 @@ export default {
     getAllProducts,
     getProductsByCategory,
     getFeaturedProducts,
-    getProductsById,
+    getProductById,
     searchProducts,
     addToCart
 }

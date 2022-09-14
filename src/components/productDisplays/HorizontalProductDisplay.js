@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from './ProductCard'
+import ProductCard from '../productCard/ProductCard'
 import './HorizontalProductDisplay.css'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'

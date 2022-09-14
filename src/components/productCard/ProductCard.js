@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { addToCart } from '../../services/api.service'
 import UserContext from '../../hooks/UserContext.js'
 import http from '../../services/api.service.js'
+import './ProductCard.css'
 
 export default function ProductCard({ name, price, size, image, id }) {
 
@@ -37,7 +38,7 @@ export default function ProductCard({ name, price, size, image, id }) {
                 </div>
 
                 <div className='product-info'>
-                    <div className='price'>${price}</div>
+                    <div className='price'>${price.toFixed(2)}</div>
                     <div className='name'>{name}</div>
                     <div className='size'>{size}</div>
                 </div>

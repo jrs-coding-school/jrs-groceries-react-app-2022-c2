@@ -23,8 +23,6 @@ export default function LoginForm({ onLogin }) {
         setWasLoginFailed(false);
 
         attemptLogIn();
-        // setTimeout(() => {
-        // }, 500);
     }
 
     function handleInputChange(e) {
@@ -41,7 +39,6 @@ export default function LoginForm({ onLogin }) {
         http.login(formData)
             .then(results => {
                 let user = results.data;
-                // navigate('/')
                 // context -> login(user)
                 login && login(user);
                 onLogin && onLogin(user)
@@ -51,7 +48,6 @@ export default function LoginForm({ onLogin }) {
             }).finally(() => {
                 console.log('done loading');
                 setIsLoading(false)
-
             })
     }
 
@@ -114,8 +110,6 @@ export default function LoginForm({ onLogin }) {
                 Your email or password was incorrect
             </div>
 
-
-
             {!isLoading
                 ? (
                     <button className='button-green'
@@ -127,10 +121,8 @@ export default function LoginForm({ onLogin }) {
                 )
                 : <div className="loader-spin-root">
                     <div className="circle">
-
                     </div>
                 </div>}
-
         </form >
 
 
