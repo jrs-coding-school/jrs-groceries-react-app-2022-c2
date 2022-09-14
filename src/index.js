@@ -12,6 +12,7 @@ import ItemPage from './components/itemPage/ItemPage';
 import CheckoutSuccess from './components/formStep/CheckoutSuccess';
 import SearchResult from './components/searchResult/SearchResult';
 import NotFoundPage from './components/notFoundPage/NotFoundPage';
+import CartList from './components/cart/cart/cartList/CartList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,18 +21,26 @@ root.render(
       <Routes>
 
         <Route path="/" element={<App />}>
+
           <Route path="" element={<HomePage />}>
             <Route path="" element={<CategoryPage />} />
             <Route path="/home/:category" element={<CategoryPage />} />
             <Route path="/home/search/:searchParam" element={<SearchResult />} />
           </Route>
+
           <Route path="/products" element={<CategoryPage />} />
           <Route path="/products/category/:category" element={<CategoryPage />} />
           <Route path="/products/item/:productId" element={<ItemPage />} />
+
           <Route path="/cart" element={<Cart />} />
+          <Route path="/cartItems" element={<Cart />} />
+          <Route path="/cartItems/:customerId" element={<CartList />} />
+
           <Route path='/checkout' element={<CheckoutPage />} />
           <Route path='/checkout/success' element={<CheckoutSuccess />} />
+
           <Route path="*" element={<NotFoundPage />} />
+
         </Route>
 
       </Routes>
