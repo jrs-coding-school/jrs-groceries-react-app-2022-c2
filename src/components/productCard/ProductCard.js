@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../App.js'
 import UserContext from '../../hooks/UserContext.js'
@@ -16,16 +16,7 @@ export default function ProductCard({ name, price, size, image, id, category, br
         console.log('adding to cart');
         // add to cart by sending an http request
         // send the item id, user id, quantity (1), and price as parameters
-        http.addToCart(activeUser.id, id, price)
-            .then(results => {
-                addToCart({ id, price, size, name, image, category, description, brand, quantity: 1, total: price })
-            }).catch(err => {
-                console.error(err);
-                // setWasItemAdded(false);
-            }).finally(() => {
-                console.log('added to cart');
-                // setItemAdded(true)
-            });
+        addToCart({ id, price, size, name, image, category, description, brand })
     }
 
     return (

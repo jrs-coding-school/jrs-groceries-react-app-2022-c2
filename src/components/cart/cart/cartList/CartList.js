@@ -1,16 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../../../../App'
 import CartItem from '../cartItem/CartItem'
 import './CartList.css'
 
-export default function CartList({ items, removeFromCart, updateQuantity }) {
+export default function CartList() {
 
+    var { cart } = useContext(CartContext)
     return (
         <div className='cart-items-container'>
-            {items?.map(item => (
-                <CartItem key={item.id} {...item}
-                    removeFromCart={removeFromCart}
-                    updateQuantity={updateQuantity}
-                />
+            {cart?.map(item => (
+                <CartItem key={item.id} {...item} />
             ))}
         </div>
     )

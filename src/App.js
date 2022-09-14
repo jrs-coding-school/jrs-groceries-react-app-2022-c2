@@ -25,23 +25,60 @@ function App() {
   function logout() {
     setActiveUser(null);
   }
+
   function removeFromCart(itemId) {
-    setCart(cart.filter(item => item.id !== itemId))
+    http.removeFromCart(activeUser.id, itemId)
+      .then(res => {
+        setCart(cart.filter(item => item.id !== itemId));
+      })
+      .catch(error => {
+        // handle error
+      });
+
   }
-  function addToCart(newItem) {
-    setCart([...cart, newItem]);
+
+  function addToCart({ id, price, size, name, image, category, description, brand }) {
+    if (checkItemIsAlreadyInCart(id)) {
+      updateQuantity(id, 1, price)
+    } else {
+      http.addToCart(activeUser.id, id, price)
+        .then(results => {
+          setCart([...cart, { id, price, size, name, image, category, description, brand, quantity: 1, total: price }]);
+        }).catch(err => {
+          console.error(err);
+          // setWasItemAdded(false);
+        }).finally(() => {
+          console.log('added to cart');
+          // setItemAdded(true)
+        });
+    }
+
   }
-  function updateQuantity(itemId, amount) {
-    setCart(cart.map(item => {
-      if (item.id == itemId) {
-        return {
-          ...item,
-          quantity: item.quantity + amount
-        }
-      } else {
-        return item
-      }
-    }))
+
+  function updateQuantity(itemId, amount, price) {
+    http.increaseQuantity(activeUser.id, itemId, price)
+      .then(results => {
+        // update state after api is updated
+        setCart(cart.map(item => {
+          if (item.id == itemId) {
+            return {
+              ...item,
+              quantity: item.quantity + amount,
+              total: item.total + (amount * price)
+            }
+          } else {
+            return item
+          }
+        }));
+      }).catch(err => {
+        console.error(err);
+        // setWasItemAdded(false);
+      }).finally(() => {
+        console.log('added to cart');
+        // setItemAdded(true)
+      });
+
+
   }
 
   function getCart() {
@@ -56,6 +93,9 @@ function App() {
       });
   }
 
+  function checkItemIsAlreadyInCart(itemid) {
+    return cart.find(item => item.id === itemid)
+  }
 
   return (
     <UserContext.Provider value={{ activeUser, login, logout }}>

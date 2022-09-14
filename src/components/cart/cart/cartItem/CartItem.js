@@ -1,51 +1,23 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import UserContext from '../../../../hooks/UserContext'
-import http from '../../../../services/api.service.js'
+import { CartContext } from '../../../../App'
 import './CartItem.css'
 
-export default function CartItem({ id, name, size, price, category, brand, description, image, total, quantity, removeFromCart, updateQuantity }) {
+export default function CartItem({ id, name, size, price, category, brand, description, image, total, quantity }) {
 
     console.log(id, quantity, name)
     // user comes from 'UserContext'
-    const { activeUser } = useContext(UserContext)
-    const { addToCart } = useState(true)
+    var { removeFromCart, updateQuantity } = useContext(CartContext)
 
     function handlePlusClicked() {
-        console.log('adding to cart');
-        // add to cart by sending an http request
-        // send the item id, user id, quantity (1), and total as parameters
-        http.increaseQuantity(activeUser.id, id, total)
-            .then(results => {
-                updateQuantity(id, 1)
-            }).catch(err => {
-                console.error(err);
-                // setWasItemAdded(false);
-            }).finally(() => {
-                console.log('added to cart');
-                // setItemAdded(true)
-            });
+        updateQuantity(id, 1, price)
     }
+
     function handleMinusClicked() {
         if (quantity <= 1) {
-            http.removeFromCart(activeUser.id, id)
-                .then(res => {
-                    removeFromCart(id);
-                })
-                .catch(error => {
-                    // handle error
-                });
+            removeFromCart(id);
         } else {
-            http.decreaseQuantity(activeUser.id, id, price)
-                .then(results => {
-                    updateQuantity(id, -1)
-                }).catch(err => {
-                    console.error(err);
-                    // setWasItemAdded(false);
-                }).finally(() => {
-                    console.log('added to cart');
-                    // setItemAdded(true)
-                });
+            updateQuantity(id, -1, price)
         }
     }
 
@@ -59,7 +31,7 @@ export default function CartItem({ id, name, size, price, category, brand, descr
             </Link>
 
             <div className='product-info'>
-                <div className='total'>${total}</div>
+                <div className='total'>${total.toFixed(2)}</div>
                 <div className='name'>{name}</div>
                 <div className='size'>{size}</div>
             </div>
