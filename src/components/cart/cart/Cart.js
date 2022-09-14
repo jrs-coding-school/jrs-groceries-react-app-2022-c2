@@ -1,8 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
-import UserContext from '../../../hooks/UserContext'
-import { CartContext } from '../../../App'
+import { CartContext, UserContext } from '../../../App'
 import CartList from './cartList/CartList'
 
 export default function Cart() {

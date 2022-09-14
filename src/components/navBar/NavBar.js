@@ -6,9 +6,9 @@ import Login from '../login/Login';
 import Cart from '../cart/cart/Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark, faHouse, faCartShopping } from '@fortawesome/free-solid-svg-icons'
-import UserContext from '../../hooks/UserContext';
 import { Link } from 'react-router-dom';
 import SearchBar from '../searchBar/SearchBar';
+import { UserContext } from '../../App';
 
 
 
@@ -96,7 +96,6 @@ export default function NavBar() {
                         className='exit'
                         icon={faCircleXmark}
                         onClick={(toggleIsShoppingCartOpen)}>
-
                     </FontAwesomeIcon>
                     <Cart />
                 </div>

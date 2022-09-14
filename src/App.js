@@ -1,12 +1,12 @@
 import './App.css';
 import { Outlet } from 'react-router-dom'
 import NavBar from './components/navBar/NavBar';
-import UserContext from './hooks/UserContext';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import Footer from './components/footer/Footer';
 import { createContext, useEffect, useState } from 'react';
 import http from './services/api.service'
 
+export const UserContext = createContext(null);
 export const CartContext = createContext(null);
 
 function App() {

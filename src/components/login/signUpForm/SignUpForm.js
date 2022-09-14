@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { UserContext } from '../../../App';
 import http from '../../../services/api.service';
 import './SignUpForm.css'
-import UserContext from '../../../hooks/UserContext';
 
 export default function SignUpForm({ onSignupSuccessful }) {
 
