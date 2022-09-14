@@ -4,10 +4,10 @@ import './ContactInfoForm.css'
 
 export default function ContactInfoForm({ formData, setFormData, onSubmit }) {
 
-    let emailInputRef = useRef()
+    let nameInputRef = useRef()
 
     useEffect(() => {
-        emailInputRef.current.focus()
+        nameInputRef.current.focus()
     }, []);
 
     function handleFormSubmit(e) {
@@ -41,6 +41,7 @@ export default function ContactInfoForm({ formData, setFormData, onSubmit }) {
                     required
                     placeholder='John Smith'
                     id='name'
+                    ref={nameInputRef}
                 />
             </div>
             <div className='email'>
@@ -53,7 +54,6 @@ export default function ContactInfoForm({ formData, setFormData, onSubmit }) {
                     required
                     placeholder='name@email.com'
                     id='email'
-                    ref={emailInputRef}
                 />
             </div>
             <PhoneInput setPhoneNumber={(newNumber) => {
