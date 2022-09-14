@@ -9,6 +9,7 @@ import { faCircleXmark, faHouse, faCartShopping } from '@fortawesome/free-solid-
 import UserContext from '../../hooks/UserContext';
 import { Link } from 'react-router-dom';
 import SearchBar from '../searchBar/SearchBar';
+import CartPreview from '../cart/cart/cartPreview/CartPreview';
 
 
 export default function NavBar() {
@@ -16,7 +17,7 @@ export default function NavBar() {
     const { activeUser, logout } = useContext(UserContext)
 
     const [isModalOpen, toggleModalOpen] = useBoolean(false);
-    const [shoppingCart, toggleShoppingCart] = useBoolean(false)
+    const [isShoppingCartOpen, toggleIsShoppingCartOpen] = useBoolean(false)
 
     const [isMethodDelivery, toggleMethod] = useBoolean(true);
 
@@ -52,7 +53,7 @@ export default function NavBar() {
                             ? (
                                 <>
                                     <div className='active-user'>{activeUser.email}</div>
-                                    <button className='cart icon' onClick={(toggleShoppingCart)}>
+                                    <button className='cart icon' onClick={(toggleIsShoppingCartOpen)}>
                                         <FontAwesomeIcon
                                             icon={faCartShopping}>
                                         </FontAwesomeIcon>
@@ -90,14 +91,14 @@ export default function NavBar() {
                     </Modal>
                 )}
 
-                <div className={`side-menu cart ${shoppingCart ? 'visible' : 'hidden'}`}>
+                <div className={`side-menu cart ${isShoppingCartOpen ? 'visible' : 'hidden'}`}>
                     <FontAwesomeIcon
                         className='exit'
                         icon={faCircleXmark}
-                        onClick={(toggleShoppingCart)}>
+                        onClick={(toggleIsShoppingCartOpen)}>
 
                     </FontAwesomeIcon>
-                    <Cart />
+                    {isShoppingCartOpen && <CartPreview />}
                 </div>
             </div>
         </>
