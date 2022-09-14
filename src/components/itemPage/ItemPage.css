@@ -1,6 +1,5 @@
 .product-container {
     background-color: var(--primary-grey);
-    height: 100%;
     padding: 2rem;
     position: relative;
 }
@@ -15,6 +14,8 @@
     font-weight: 600;
     color: var(--primary-white);
     transition: 0.3s;
+
+
 }
 
 .product-container .product-main {
@@ -33,7 +34,6 @@
 
 .product-container .product-actual {
     display: flex;
-    width: 70%;
 
     background-color: var(--tertiary-grey);
     box-shadow: 0 8px 32px 0 #a9bdb5a0;
@@ -45,7 +45,6 @@
 
 .product-container .product-information {
     text-align: left;
-    width: 50%;
     padding: 1rem;
 }
 
@@ -73,14 +72,13 @@
 }
 
 .product-container .product-selection {
-    width: 20%;
     margin: 0;
 }
 
 .product-container .product-data {
     background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
-    padding: 1rem;
-    margin-bottom: 1.5rem;
+    padding: 2rem 3rem;
+    margin-bottom: 1rem;
     color: var(--primary-white);
 
 
@@ -92,8 +90,11 @@
 
 }
 
-.product-container .product-price {
-    padding: .5rem;
+.product-container .product-price,
+.product-container .product-size,
+.product-container .product-quantity,
+.product-container .quantity-prompt {
+    text-align: center;
     margin-top: 1rem;
 }
 
@@ -104,11 +105,13 @@
 }
 
 .product-container .product-quantity {
-    margin: 1rem auto;
+
     width: 3rem;
     height: 3rem;
-    text-align: center;
-    padding: .5em;
+    display: block;
+    margin: 0 auto;
+
+
     border: none;
     border-radius: 8px;
     font-size: 16pt;
@@ -148,4 +151,45 @@
 .product-container .quantity-prompt {
     font-style: italic;
     font-weight: 400;
+}
+
+.product-container .hover:hover {
+    box-shadow: 0px 0px 3px 4px #3f856b inset;
+}
+
+@media screen and (max-width: 550px) {
+
+    .product-container {
+        padding: 3rem 0 0 0;
+    }
+
+    .product-container .product-main {
+        flex-direction: column;
+    }
+
+    .product-container .product-actual,
+    .product-container .product-selection {
+        flex-direction: column;
+        width: 400px;
+        margin: 0;
+    }
+
+    .product-container .product-data {
+        display: flex;
+        justify-content: space-between;
+        padding: .5rem 2rem;
+    }
+
+    .product-container .product-price,
+    .product-container .product-size,
+    .product-container .product-quantity,
+    .product-container .quantity-prompt {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .product-container .product-image {
+        display: block;
+        margin: 0 auto;
+    }
 }
