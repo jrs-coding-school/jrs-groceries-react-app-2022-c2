@@ -42,7 +42,6 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
     }
 
     function handleCardInfoInputChange(e) {
-        // if number is now 3 digits long, focus next input
         focusNextCardInfoInput(e)
     }
 
@@ -214,7 +213,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                 <input
                     type='text'
                     name='cardholderName'
-                    value={formData.cardholderName}
+                    value={formData.cardholderName || ''}
                     onChange={handleInputChange}
                     required
                     placeholder='Cardholder Name'
@@ -226,7 +225,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                 <input
                     type='number'
                     name='cardNumber1'
-                    value={formData.cardNumber1}
+                    value={formData.cardNumber1 || ''}
                     onChange={handleCardInfoInputChange}
                     required
                     placeholder='0000'
@@ -235,7 +234,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                 <input
                     type='number'
                     name='cardNumber2'
-                    value={formData.cardNumber2}
+                    value={formData.cardNumber2 || ''}
                     onChange={handleCardInfoInputChange}
                     required
                     placeholder='0000'
@@ -245,7 +244,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                 <input
                     type='number'
                     name='cardNumber3'
-                    value={formData.cardNumber3}
+                    value={formData.cardNumber3 || ''}
                     onChange={handleCardInfoInputChange}
                     required
                     placeholder='0000'
@@ -255,7 +254,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                 <input
                     type='number'
                     name='cardNumber4'
-                    value={formData.cardNumber4}
+                    value={formData.cardNumber4 || ''}
                     onChange={handleCardInfoInputChange}
                     required
                     placeholder='0000'
@@ -267,7 +266,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                 <input
                     type='number'
                     name='expirationMonth'
-                    value={formData.expirationMonth}
+                    value={formData.expirationMonth || ''}
                     onChange={handleCardInfoInputChange}
                     required
                     placeholder='MM'
@@ -277,7 +276,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                 <input
                     type='number'
                     name='expirationYear'
-                    value={formData.expirationYear}
+                    value={formData.expirationYear || ''}
                     onChange={handleCardInfoInputChange}
                     required
                     placeholder='YY'
@@ -288,7 +287,7 @@ export default function BillingForm({ formData, setFormData, onSubmit, onBackCli
                     className='cvv'
                     type='number'
                     name='cvv'
-                    value={formData.cvv}
+                    value={formData.cvv || ''}
                     onChange={(e) => {
                         limitInputLength(e, 3)
                     }}

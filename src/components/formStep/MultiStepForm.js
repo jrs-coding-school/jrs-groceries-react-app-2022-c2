@@ -13,6 +13,7 @@ export default function MultiStepForm() {
         phoneNumber: '',
     })
     const [shippingFormData, setShippingFormData] = useState({
+        name: '',
         address1: '',
         address2: '',
         city: '',
@@ -51,7 +52,6 @@ export default function MultiStepForm() {
         <ContactInfoForm formData={contactFormData}
             setFormData={setContactFormData}
             onSubmit={() => {
-                console.log("contact info updated")
                 nextStep();
             }} />,
         <ShippingForm formData={shippingFormData}

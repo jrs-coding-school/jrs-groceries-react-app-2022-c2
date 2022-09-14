@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
 import './Footer.css'
 
 
@@ -13,6 +13,7 @@ export default function Footer() {
                 <FontAwesomeIcon icon={faFacebook} />
                 <FontAwesomeIcon icon={faTwitter} />
                 <FontAwesomeIcon icon={faInstagram} />
+                <FontAwesomeIcon icon={faGithub} />
             </div>
             <br />
             <div className='flex-container'>

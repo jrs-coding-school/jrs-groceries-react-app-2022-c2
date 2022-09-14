@@ -33,8 +33,6 @@ export default function ShippingForm({ formData, setFormData, onSubmit, onBackCl
             value = value.slice(0, maxLength); // slice string
             value = Number(value); // number type cast
         }
-
-        console.log(value)
         setFormData({
             ...formData,
             [name]: value
@@ -171,7 +169,6 @@ export default function ShippingForm({ formData, setFormData, onSubmit, onBackCl
                     required
                     placeholder='29464'
                     id='zipCode'
-                    maxLength='5'
                 />
             </div>
             <div className='delivery-instructions'>
