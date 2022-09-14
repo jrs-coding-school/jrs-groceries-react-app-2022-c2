@@ -65,10 +65,14 @@ export default function ItemPage() {
 
                     <div className='product-selection'>
                         <div className="product-data">
-                            <div className="product-price">${product.price.toFixed(2)}</div>
-                            <div className="product-size">{product.size}</div>
-                            <input className="product-quantity" type="number" min="1"></input>
-                            <div className="quantity-prompt">Quantity</div>
+                            <div>
+                                <div className="product-price">${product.price.toFixed(2)}</div>
+                                <div className="product-size">{product.size}</div>
+                            </div>
+                            <div>
+                                <input className="product-quantity" type="number" min="1"></input>
+                                <div className="quantity-prompt">Quantity</div>
+                            </div>
                         </div>
 
                         <button className='product-add-item hover'>+ Add to Cart</button>

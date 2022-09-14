@@ -11,8 +11,8 @@
     gap: 2rem;
     /* min. space between .left and .right boxes */
     padding: 0.5rem 1rem;
-    background: linear-gradient(45deg, #3DC08D, #47D9A8);
-    color: #F2FAFF;
+    background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
+    color: var(--primary-white);
 }
 
 nav .left,
@@ -28,31 +28,22 @@ nav .nav-search {
 }
 
 nav .icon {
-    color: #3DC08D;
-    background-color: #F2FAFF;
+    color: var(--primary-green);
+    background-color: var(--primary-white);
     font-size: 17pt;
     padding: .5em;
     border-radius: 50%;
     cursor: pointer;
 }
 
-nav .icon:hover {
-    color: #3DC08D;
-    background-color: #F2FAFF;
-    box-shadow: 0px 0px 4px 2px #c5cac8 inset;
-    padding: .5em;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
 .nav-root .cart {
-    color: #47D9A8;
+    color: var(--secondary-green);
 }
 
 nav .logout,
 nav .login {
-    background-color: #F2FAFF;
-    color: #505251;
+    background-color: var(--primary-white);
+    color: var(--secondary-grey);
     padding: 1rem;
     font-weight: bold;
     cursor: pointer;
@@ -68,8 +59,8 @@ nav .active-user {
 }
 
 nav .logout:hover,
-nav .login:hover {
-
+nav .login:hover,
+nav .icon:hover {
     box-shadow: 0px 0px 4px 2px #c5cac8 inset;
 
 }
@@ -80,7 +71,7 @@ nav .login:hover {
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: #F2FAFF;
+    background-color: var(--primary-white);
     z-index: 3;
 
     width: 400px;
@@ -111,7 +102,6 @@ nav .method {
 }
 
 nav .method:hover {
-    background-color: #3DC08D;
     box-shadow: 0px 0px 5px 5px #2d9d72 inset;
 }
 
@@ -125,8 +115,8 @@ nav .method>div {
 }
 
 nav .method .selected {
-    background-color: #F2FAFF;
-    color: #47D9A8;
+    background-color: var(--primary-white);
+    color: var(--primary-green);
     transition: .3s;
     font-weight: bold;
 }

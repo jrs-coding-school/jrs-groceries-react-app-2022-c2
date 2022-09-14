@@ -1,9 +1,9 @@
 .confirm-root h2 {
-    color: #4f5251;
+    color: var(--primary-black);
 }
 
 .confirm-root {
-    color: black;
+    color: var(--secondary-grey);
 }
 
 .confirmation-container {

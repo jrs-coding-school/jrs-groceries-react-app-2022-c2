@@ -13,7 +13,7 @@
 
 
 .modal-root .modal {
-    background-color: #c7cfd5;
+    background-color: var(--primary-grey);
     width: fit-content;
     min-width: 50%;
     border-radius: 8px;

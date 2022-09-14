@@ -1,21 +1,17 @@
 .category-card {
     text-decoration: none;
-    background-color: #3DC08D;
+    background-color: var(--primary-green);
+    color: var(--primary-white);
     padding: 1rem;
-    color: #F2FAFF;
     font-size: 20pt;
     font-weight: 600;
     text-align: center;
-
-    width: 300px;
-    border-radius: 10px;
-
+    width: 350px;
     box-shadow: 0 0 10px 7px #92b1a4a0;
     backdrop-filter: blur(7.5px);
     -webkit-backdrop-filter: blur(7.5px);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    transition: .3s;
+
 }
 
 .category-card:hover {

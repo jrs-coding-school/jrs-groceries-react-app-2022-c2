@@ -1,8 +1,8 @@
 .login-root h1 {
-    background: linear-gradient(45deg, #3DC08D, #47D9A8);
+    background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
     margin: 0 auto;
     padding: .7rem;
-    color: #F2FAFF;
+    color: var(--primary-white);
     font-size: 22pt;
 }
 
@@ -15,7 +15,7 @@
     margin: 0 1rem;
     border: 0;
     height: 1px;
-    background: #111;
+    background: var(--primary-black);
 }
 
 .login-root button {
@@ -24,6 +24,10 @@
     padding: .5em;
 }
 
+.login-root input {
+    border: 2px solid transparent;
+}
+
 .login-root input:focus {
-    border: 2px solid #3DC08D;
+    border: 2px solid var(--primary-green);
 }

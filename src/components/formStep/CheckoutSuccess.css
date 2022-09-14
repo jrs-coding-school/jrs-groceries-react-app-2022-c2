@@ -4,5 +4,5 @@
 }
 
 .checkout-success-root .success-icon {
-    color: #3DC08D;
+    color: var(--secondary-green);
 }
