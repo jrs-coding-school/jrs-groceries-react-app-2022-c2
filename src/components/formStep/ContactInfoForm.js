@@ -31,6 +31,18 @@ export default function ContactInfoForm({ formData, setFormData, onSubmit }) {
             onSubmit={handleFormSubmit}
             className='contact-info-root' >
             <h2>Contact Info</h2>
+            <div className='name'>
+                <label htmlFor='name'>Name:</label>
+                <input
+                    type='text'
+                    name='name'
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    placeholder='John Smith'
+                    id='name'
+                />
+            </div>
             <div className='email'>
                 <label htmlFor='email'>E-mail:</label>
                 <input
@@ -44,42 +56,20 @@ export default function ContactInfoForm({ formData, setFormData, onSubmit }) {
                     ref={emailInputRef}
                 />
             </div>
-            <div className='first-name'>
-                <label htmlFor='first-name'>First Name:</label>
-                <input
-                    type='text'
-                    name='firstName'
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    required
-                    placeholder='John'
-                    id='first-name'
-                />
-            </div>
-            <div className='last-name'>
-                <label htmlFor='last-name'>Last Name:</label>
-                <input
-                    type='text'
-                    name='lastName'
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    required
-                    placeholder='Smith'
-                    id='last-name'
-                />
-            </div>
-            <PhoneInput
-                setPhoneNumber={(newNumber) => {
-                    setFormData({
-                        ...formData,
-                        phoneNumber: newNumber
-                    })
-                }}
+            <PhoneInput setPhoneNumber={(newNumber) => {
+                setFormData({
+                    ...formData,
+                    phoneNumber: newNumber
+                })
+            }}
                 phoneNumber={formData.phoneNumber} />
-
-            <button type='submit'>
-                Shipping Info
-            </button>
+            <hr />
+            <div className='btn-container'>
+                <button type='submit'
+                    className='right-btn'>
+                    Go To Shipping Info &#8594;
+                </button>
+            </div>
         </form >
     )
 }

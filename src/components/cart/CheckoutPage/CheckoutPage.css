@@ -34,3 +34,7 @@ body {
     background-color: #ccdede;
     border-radius: 15px;
 }
+
+.checkout-page-title {
+    text-align: center;
+}

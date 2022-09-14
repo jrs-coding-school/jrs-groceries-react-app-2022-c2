@@ -5,3 +5,8 @@
 .confirm-root {
     color: var(--secondary-grey);
 }
+
+.confirmation-container {
+    border: #3dc08d double 5px;
+    border-radius: 20px;
+}

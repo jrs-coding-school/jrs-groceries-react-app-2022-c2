@@ -22,7 +22,7 @@ export default function PhoneInput({ phoneNumber, setPhoneNumber }) {
                 }}
                 required
                 className='phone'
-                placeholder='(123)-555-1234'
+                placeholder='(123)555-1234'
                 id='phone-number-input'
             />
         </div>
