@@ -1,14 +1,19 @@
 .login-root h1 {
     background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
     margin: 0 auto;
-    padding: .7rem;
+    padding: 1rem;
     color: var(--primary-white);
     font-size: 22pt;
+    text-align: center;
 }
 
 .login-root .form,
 .login-root .switch {
     margin: 2rem;
+}
+
+.login-root .switch {
+    text-align: center;
 }
 
 .login-root hr {

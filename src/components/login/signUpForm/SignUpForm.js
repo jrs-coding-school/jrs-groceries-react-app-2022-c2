@@ -143,41 +143,42 @@ export default function SignUpForm({ onSignupSuccessful }) {
             </div>
 
             <br />
-
-            <input
-                type="checkbox"
-                checked={isPasswordVisible}
-                onChange={(e) => {
-                    setisPasswordVisible(e.target.checked);
-                }}
-
-                className="password-visible"
-                id="loginPasswordVisibleInput"
-            />
-            <label
-                className="show-password"
-                htmlFor="loginPasswordVisibleInput">
-                Show&nbsp;Password
-            </label>
+            <div className='show-password'>
+                <input
+                    type="checkbox"
+                    checked={isPasswordVisible}
+                    onChange={(e) => {
+                        setisPasswordVisible(e.target.checked);
+                    }}
+                    id="loginPasswordVisibleInput"
+                />
+                <label
+                    htmlFor="loginPasswordVisibleInput" >
+                    Show&nbsp;Password
+                </label>
+            </div>
 
             <div className={"signup-failed " + (formData.password !== formData.confirmPassword && 'visible')} >
                 Your passwords do not match.
             </div>
 
-            {!isLoading
-                ? (
-                    <button
-                        disabled={!formData.email || !formData.password}
-                        type="submit"
-                    >
-                        Create Account
-                    </button>
-                )
-                : <div className="loader-spin-root">
-                    <div className="circle">
+            {
+                !isLoading
+                    ? (
+                        <button
+                            className='create-account'
+                            disabled={!formData.email || !formData.password}
+                            type="submit"
+                        >
+                            Create Account
+                        </button>
+                    )
+                    : <div className="loader-spin-root">
+                        <div className="circle">
 
+                        </div>
                     </div>
-                </div>}
+            }
 
         </form >
 
