@@ -21,7 +21,7 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
                     <b>Phone Number: </b> {contactFormData.phoneNumber}
                 </li>
             </ul>
-
+            <hr />
             <h2>Shipping Info</h2>
             <ul className='confirmation-container'>
                 {shippingFormData.name}
@@ -36,7 +36,7 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
                 <br />
                 {shippingFormData.deliveryInstructions}
             </ul>
-
+            <hr />
             <h2>Billing Info</h2>
             <h4>Billing Address</h4>
             <ul className='confirmation-container'>
