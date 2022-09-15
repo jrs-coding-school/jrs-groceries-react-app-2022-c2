@@ -7,10 +7,12 @@ export default function CartList() {
 
     var { cart } = useContext(CartContext)
     return (
-        <div className='cart-items-container'>
+
+        <div className='cart-list'>
             {cart?.map(item => (
                 <CartItem key={item.id} {...item} />
             ))}
         </div>
+
     )
 }
