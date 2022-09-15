@@ -66,7 +66,6 @@ nav .icon:hover {
 }
 
 .nav-root .side-menu {
-    border: solid red 2px;
     position: fixed;
     top: 0;
     right: 0;
@@ -85,11 +84,17 @@ nav .icon:hover {
 }
 
 .nav-root .exit {
-    font-size: 14pt;
-    color: rgb(204, 39, 39);
+    color: rgba(91, 158, 108, 0.719);
     position: absolute;
-    left: 2px;
-    top: 2px;
+    left: 10px;
+    top: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.nav-root .exit:hover {
+
+    color: rgb(213, 110, 110);
 }
 
 nav .method {

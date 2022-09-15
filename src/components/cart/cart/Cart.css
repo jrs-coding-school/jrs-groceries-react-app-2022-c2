@@ -1,0 +1,31 @@
+.cart-root {
+    height: 100%;
+}
+
+.cart-root h1 {
+    color: var(--primary-white);
+    background-color: var(--primary-green);
+    position: sticky;
+    padding: 1rem;
+    text-align: center;
+    margin: 0;
+}
+
+.cart-root>button {
+    color: var(--primary-white);
+    background-color: var(--primary-green);
+    font-size: 18pt;
+    font-weight: 600;
+    padding: 1rem;
+    position: sticky;
+    width: 100%;
+    bottom: 0;
+    cursor: pointer;
+    transform: 0.3s;
+}
+
+
+.cart-root>button:hover {
+    background-color: var(--secondary-green);
+
+}

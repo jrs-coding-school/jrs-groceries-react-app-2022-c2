@@ -1,18 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './ItemPage.css'
 import http from '../../services/api.service'
 import { Link, useParams } from 'react-router-dom'
 import LoaderSpin from '../LoaderSpin/LoaderSpin'
-import ProductCard from '../productCard/ProductCard'
 import FlexProductDisplay from '../productDisplays/FlexProductDisplay'
+import { CartContext } from '../../App'
 
 
 export default function ItemPage() {
 
     const { productId } = useParams()
     const [product, setProduct] = useState()
+    const [quantityInput, setQuantityInput] = useState(1)
     const [relatedItems, setRelatedItems] = useState([])
-    console.log(product);
+    const { addToCart } = useContext(CartContext)
+
+
+    function handleAddToCartClicked() {
+        // add to cart by sending an http request
+        // send the item id, user id, quantity (1), and price as parameters
+        addToCart(product, quantityInput)
+    }
 
     useEffect(() => {
         getProductById()
@@ -70,12 +78,25 @@ export default function ItemPage() {
                                 <div className="product-size">{product.size}</div>
                             </div>
                             <div>
-                                <input className="product-quantity" type="number" min="1"></input>
+                                <input
+                                    className="product-quantity"
+                                    type="number"
+                                    value={quantityInput}
+                                    onChange={(e) => {
+                                        setQuantityInput(Number(e.target.value))
+                                    }}
+                                    min="1"
+                                />
                                 <div className="quantity-prompt">Quantity</div>
                             </div>
                         </div>
 
-                        <button className='product-add-item hover'>+ Add to Cart</button>
+                        <button
+                            className='product-add-item hover'
+                            onClick={handleAddToCartClicked}
+                        >
+                            + Add to Cart
+                        </button>
 
                     </div>
 

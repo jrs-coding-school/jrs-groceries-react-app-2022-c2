@@ -25,6 +25,7 @@ function App() {
   function login(newUser) {
     setActiveUser(newUser)
   }
+
   function logout() {
     setActiveUser(null);
   }
@@ -40,13 +41,13 @@ function App() {
 
   }
 
-  function addToCart({ id, price, size, name, image, category, description, brand }) {
+  function addToCart({ id, price, size, name, image, category, description, brand }, quantity) {
     if (checkItemIsAlreadyInCart(id)) {
-      updateQuantity(id, 1, price)
+      updateQuantity(id, quantity, price)
     } else {
-      http.addToCart(activeUser.id, id, price)
+      http.addToCart(activeUser.id, id, price * quantity, quantity)
         .then(results => {
-          setCart([...cart, { id, price, size, name, image, category, description, brand, quantity: 1, total: price }]);
+          setCart([...cart, { id, price, size, name, image, category, description, brand, quantity, total: price }]);
           toast.success('Item was added to cart');
         }).catch(err => {
           console.error(err);
@@ -89,7 +90,6 @@ function App() {
     // use active user id
     http.getCartItemsByUserId(activeUser.id)
       .then(results => {
-        console.log(results.data)
         results.data?.length > 0 && setCart(results.data);
       })
       .catch(err => {

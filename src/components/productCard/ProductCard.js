@@ -7,7 +7,6 @@ import './ProductCard.css'
 
 export default function ProductCard({ name, price, size, image, id, category, brand, description }) {
 
-    // user comes from 'UserContext'
     const { activeUser } = useContext(UserContext);
     const { addToCart } = useContext(CartContext)
     // const [setItemAdded, setWasItemAdded] = useState(false)
@@ -18,7 +17,7 @@ export default function ProductCard({ name, price, size, image, id, category, br
             console.log('adding to cart');
             // add to cart by sending an http request
             // send the item id, user id, quantity (1), and price as parameters
-            addToCart({ id, price, size, name, image, category, description, brand })
+            addToCart({ id, price, size, name, image, category, description, brand }, 1)
         } else {
             toast.warn("You must be signed in to add items to your shopping cart.")
         }

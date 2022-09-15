@@ -21,11 +21,11 @@ export default function CartItem({ id, name, size, price, category, brand, descr
     }
 
     return (
-        <div>
+        <div className="cart-item-root">
 
             <Link className="item" to={"/products/item/" + id} key={id} >
                 <div className='product-image'>
-                    <img width="150" height="150" src={image} />
+                    <img width="75" height="75" src={image} />
                 </div>
             </Link>
 
@@ -36,17 +36,21 @@ export default function CartItem({ id, name, size, price, category, brand, descr
             </div>
 
             <div>
-                x{quantity}
+                <div className='quantity'>
+                    x{quantity}
+                </div>
+
+                <button className='add-item'
+                    onClick={handleMinusClicked}>
+                    -
+                </button>
+                <button className='add-item'
+                    onClick={handlePlusClicked}>
+                    +
+                </button>
             </div>
 
-            <button className='add-item'
-                onClick={handleMinusClicked}>
-                -
-            </button>
-            <button className='add-item'
-                onClick={handlePlusClicked}>
-                +
-            </button>
+
         </div>
     )
 }
