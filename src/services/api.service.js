@@ -62,11 +62,11 @@ function deleteUserById(userId) {
 
 
 
-function addToCart(activeUserId, itemId, price) {
+function addToCart(activeUserId, itemId, price, quantity) {
     return axios.post(`${BASE_URL}/cartItems`, {
         customerId: activeUserId,
         productId: itemId,
-        quantity: 1,
+        quantity,
         total: price
     });
 }

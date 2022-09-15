@@ -12,7 +12,7 @@ export default function ProductCard({ name, price, size, image, id, category, br
         console.log('adding to cart');
         // add to cart by sending an http request
         // send the item id, user id, quantity (1), and price as parameters
-        addToCart({ id, price, size, name, image, category, description, brand })
+        addToCart({ id, price, size, name, image, category, description, brand }, 1)
     }
 
     return (
