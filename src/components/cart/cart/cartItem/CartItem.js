@@ -5,7 +5,6 @@ import './CartItem.css'
 
 export default function CartItem({ id, name, size, price, category, brand, description, image, total, quantity }) {
 
-    console.log(id, quantity, name)
     // user comes from 'UserContext'
     var { removeFromCart, updateQuantity } = useContext(CartContext)
 

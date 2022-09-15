@@ -5,6 +5,7 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 import Footer from './components/footer/Footer';
 import { createContext, useEffect, useState } from 'react';
 import http from './services/api.service'
+import { ToastProvider, useToasts } from './components/toasts/ToastService';
 
 export const UserContext = createContext(null);
 export const CartContext = createContext(null);
@@ -12,11 +13,13 @@ export const CartContext = createContext(null);
 function App() {
 
   const [activeUser, setActiveUser] = useLocalStorage('activeUser');
-
   const [cart, setCart] = useState([])
+  const toast = useToasts();
 
   useEffect(() => {
-    getCart();
+    if (activeUser) {
+      getCart();
+    }
   }, [])
 
   function login(newUser) {
@@ -44,6 +47,7 @@ function App() {
       http.addToCart(activeUser.id, id, price)
         .then(results => {
           setCart([...cart, { id, price, size, name, image, category, description, brand, quantity: 1, total: price }]);
+          toast.success('Item was added to cart');
         }).catch(err => {
           console.error(err);
           // setWasItemAdded(false);

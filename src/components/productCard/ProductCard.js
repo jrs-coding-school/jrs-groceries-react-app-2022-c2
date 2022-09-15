@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext, UserContext } from '../../App.js'
 import http from '../../services/api.service.js'
+import { useToasts } from '../toasts/ToastService.js'
 import './ProductCard.css'
 
 export default function ProductCard({ name, price, size, image, id, category, brand, description }) {
@@ -10,12 +11,17 @@ export default function ProductCard({ name, price, size, image, id, category, br
     const { activeUser } = useContext(UserContext);
     const { addToCart } = useContext(CartContext)
     // const [setItemAdded, setWasItemAdded] = useState(false)
+    const toast = useToasts();
 
     function handleAddToCartClicked() {
-        console.log('adding to cart');
-        // add to cart by sending an http request
-        // send the item id, user id, quantity (1), and price as parameters
-        addToCart({ id, price, size, name, image, category, description, brand })
+        if (activeUser) {
+            console.log('adding to cart');
+            // add to cart by sending an http request
+            // send the item id, user id, quantity (1), and price as parameters
+            addToCart({ id, price, size, name, image, category, description, brand })
+        } else {
+            toast.warn("You must be signed in to add items to your shopping cart.")
+        }
     }
 
     return (
