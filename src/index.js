@@ -37,7 +37,7 @@ root.render(
           <Route path="/cartItems/:customerId" element={<CartList />} />
 
           <Route path='/checkout' element={<CheckoutPage />} />
-          <Route path='/checkout/success' element={<CheckoutSuccess />} />
+          <Route path='/checkout/success/:transactionId' element={<CheckoutSuccess />} />
 
           <Route path="*" element={<NotFoundPage />} />
 

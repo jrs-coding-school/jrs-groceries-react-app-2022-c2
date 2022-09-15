@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './ConfirmCheckout.css'
 
 
-export default function ConfirmCheckout({ contactFormData, shippingFormData, billingFormData, onBackClicked }) {
+export default function ConfirmCheckout({ contactFormData, shippingFormData, billingFormData, onBackClicked, onSubmit }) {
 
     return (
 
@@ -75,9 +75,11 @@ export default function ConfirmCheckout({ contactFormData, shippingFormData, bil
                     &#8592; Back To billing Info
                 </button>
 
-                <Link to='/checkout/success'>
-                    <button className='right-btn' type='submit'>Confirm checkout</button>
-                </Link>
+                <button className='right-btn' type='button' onClick={() => {
+                    onSubmit();
+                }}>
+                    Confirm checkout
+                </button>
             </div>
 
         </div>

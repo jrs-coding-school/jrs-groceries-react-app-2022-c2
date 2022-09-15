@@ -1,11 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import BillingForm from './BillingForm'
 import ConfirmCheckout from './ConfirmCheckout'
 import ContactInfoForm from './ContactInfoForm'
 import ShippingForm from './ShippingForm'
 import './MultiStepForm.css'
+import { CartContext, UserContext } from '../../App'
+import http from '../../services/api.service'
+import { useNavigate } from 'react-router-dom'
 
 export default function MultiStepForm() {
+
+    let { activeUser } = useContext(UserContext);
+    let { cart } = useContext(CartContext);
+    const navigate = useNavigate();
 
     const [contactFormData, setContactFormData] = useState({
         email: '',
@@ -38,6 +45,37 @@ export default function MultiStepForm() {
     })
 
     const [currentStep, setCurrentStep] = useState(0);
+
+    function submitTransaction() {
+        // * shipping and billing
+
+        let total = getGrandTotalFromCart();
+
+        http.submitTransaction(activeUser.id, cart, total)
+            .then(res => {
+                // clear cart
+                // show confirmation page
+                console.log(res.data.transactionId)
+                let transactionId = res.data.transactionId;
+                navigate('/checkout/success/' + transactionId)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }
+
+    function getGrandTotalFromCart() {
+        let total = 0;
+
+        for (let item of cart) {
+            total += item.total;
+        }
+
+        let taxRate = 0.07; // 7%
+
+        return total + (total * taxRate);
+    }
+
 
     function nextStep() {
         setCurrentStep(currentStep + 1);
@@ -76,7 +114,7 @@ export default function MultiStepForm() {
             billingFormData={billingFormData}
             onBackClicked={prevStep}
             onSubmit={() => {
-                nextStep()
+                submitTransaction();
             }} />
     ]
 

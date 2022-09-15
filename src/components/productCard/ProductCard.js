@@ -1,14 +1,13 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { CartContext } from '../../App.js'
-import UserContext from '../../hooks/UserContext.js'
+import { CartContext, UserContext } from '../../App.js'
 import http from '../../services/api.service.js'
 import './ProductCard.css'
 
 export default function ProductCard({ name, price, size, image, id, category, brand, description }) {
 
     // user comes from 'UserContext'
-    const { activeUser } = useContext(UserContext)
+    const { activeUser } = useContext(UserContext);
     const { addToCart } = useContext(CartContext)
     // const [setItemAdded, setWasItemAdded] = useState(false)
 

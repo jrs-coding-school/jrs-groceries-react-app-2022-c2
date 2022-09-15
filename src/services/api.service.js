@@ -25,6 +25,9 @@ function searchProducts(searchParam) {
     return axios.get(`${BASE_URL}/products/search/${searchParam}`)
 }
 
+
+
+
 function getAllUsers() {
     return axios.get(`${BASE_URL}/users`)
 }
@@ -56,6 +59,9 @@ function deleteUserById(userId) {
     return axios.delete(`${BASE_URL}/users/${userId}`);
 }
 
+
+
+
 function addToCart(activeUserId, itemId, price) {
     return axios.post(`${BASE_URL}/cartItems`, {
         customerId: activeUserId,
@@ -85,6 +91,15 @@ function decreaseQuantity(activeUserId, itemId, price) {
     });
 }
 
+
+
+function submitTransaction(customerId, items, grandTotal, contantInfo, shippingInfo, billingInfo) {
+    return axios.post(`${BASE_URL}/transactions`,
+        { customerId, items, grandTotal }
+    );
+}
+
+
 export default {
     getAllUsers,
     getUserById,
@@ -102,5 +117,6 @@ export default {
     getCartItemsByUserId,
     removeFromCart,
     increaseQuantity,
-    decreaseQuantity
+    decreaseQuantity,
+    submitTransaction
 }
