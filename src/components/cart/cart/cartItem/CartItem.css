@@ -1,0 +1,51 @@
+.cart-item-root {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px var(--primary-grey) solid;
+    margin: 1rem;
+    padding: 1rem .2rem;
+
+}
+
+.cart-item-root .product-info {
+    width: 50%;
+    color: var(--primary-black)
+}
+
+.cart-item-root .product-info>div {
+    padding: .1rem;
+
+}
+
+.cart-item-root .total {
+    font-size: 14pt;
+    font-weight: 700;
+}
+
+.cart-item-root .name {
+    font-size: 12pt;
+}
+
+
+
+.cart-item-root button {
+    background-color: var(--primary-green);
+    color: var(--primary-white);
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14pt;
+    width: 2rem;
+    height: 2rem;
+    margin: .2rem;
+    cursor: pointer;
+}
+
+.car-item-root button:hover {
+    background-color: var(--secondary-green);
+}
+
+.cart-item-root .quantity {
+    text-align: center;
+    padding: .5rem;
+    font-weight: 600;
+}
